@@ -17,7 +17,7 @@ export default function Consoleheader() {
         {/* Left side - Breadcrumbs / Branding */}
         <nav aria-label="Breadcrumb" className="flex items-center min-w-0">
           {isConsoleHome && (
-            <h1 className="font-semibold text-lg sm:text-xl tracking-tight text-gray-900 truncate">
+            <h1 className="font-medium text-lg sm:text-xl tracking-tight text-gray-900 truncate">
               Principal Console
             </h1>
           )}
@@ -44,7 +44,7 @@ export default function Consoleheader() {
 
               <li className="truncate">
                 <h1
-                  className="font-semibold text-gray-900 truncate"
+                  className="font-medium text-gray-900 truncate"
                   aria-current="page"
                 >
                   {isManual && "Manual Console"}

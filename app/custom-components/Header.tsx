@@ -20,6 +20,7 @@ const NAV_LINKS = [
   { path: "/git-track", icon: Boxes, label: "Logs" },
   { path: "/console", icon: Terminal, label: "Console" },
   { path: "/issues", icon: IoBugSharp, label: "Issues" },
+  { path: "/tech", icon: IoBugSharp, label: "Infrastructure" },
 ];
 
 export default function Header() {
@@ -27,13 +28,13 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm font-sans">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 sm:h-14 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-1 text-[16px] sm:text-lg font-semibold text-gray-900 hover:text-[#0078D4] transition-colors"
+            className="flex shrink-0 items-center gap-1 text-[16px] sm:text-lg font-medium text-gray-900 hover:text-[#0078D4] transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             M-<span className="text-gray-900">Scada</span>_
@@ -48,7 +49,7 @@ export default function Header() {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`flex items-center gap-1.5 h-full px-4 text-[13px] font-semibold transition-colors border-b-2 ${
+                  className={`flex items-center gap-1.5 h-full px-4 text-[13px] font-medium transition-colors border-b-2 ${
                     isActive
                       ? "border-[#0078D4] text-[#0078D4] bg-[#f3f9fd]"
                       : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
@@ -69,7 +70,7 @@ export default function Header() {
               href="https://github.com/kinshukjainn/fds-college"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[13px] font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 px-4 py-1.5 rounded-sm transition-colors"
+              className="flex items-center gap-2 text-[13px] font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 px-4 py-1.5 rounded-sm transition-colors"
             >
               <Github className="h-4 w-4" />
               <span>GitHub</span>
@@ -78,7 +79,7 @@ export default function Header() {
               href="https://fdb.cloudkinshuk.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[13px] font-semibold text-white bg-[#0078D4] border border-transparent hover:bg-[#005a9e] px-4 py-1.5 rounded-sm transition-colors"
+              className="flex items-center gap-2 text-[13px] font-medium text-white bg-[#0078D4] border border-transparent hover:bg-[#005a9e] px-4 py-1.5 rounded-sm transition-colors"
             >
               <MessageSquare className="h-4 w-4" />
               <span>Feedback</span>
@@ -116,7 +117,7 @@ export default function Header() {
                 key={link.path}
                 href={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center gap-3 px-6 py-3 text-[14px] font-semibold transition-colors border-l-2 ${
+                className={`flex items-center gap-3 px-6 py-3 text-[14px] font-medium transition-colors border-l-2 ${
                   isActive
                     ? "border-[#0078D4] text-[#0078D4] bg-[#f3f9fd]"
                     : "border-transparent text-gray-700 hover:bg-gray-50 hover:text-gray-900"
@@ -136,7 +137,7 @@ export default function Header() {
               href="https://github.com/kinshukjainn/mscada"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-sm px-4 py-2.5 text-[14px] font-semibold transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-sm px-4 py-2.5 text-[14px] font-medium transition-colors"
             >
               <Github className="h-4 w-4" />
               GitHub
@@ -145,7 +146,7 @@ export default function Header() {
               href="https://clkfeedbacks.cloudkinshuk.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-[#0078D4] hover:bg-[#005a9e] text-white rounded-sm px-4 py-2.5 text-[14px] font-semibold transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-[#0078D4] hover:bg-[#005a9e] text-white rounded-sm px-4 py-2.5 text-[14px] font-medium transition-colors"
             >
               <MessageSquare className="h-4 w-4" />
               Feedback

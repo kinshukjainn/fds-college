@@ -127,7 +127,7 @@ export default function ElectricalDiagnosticConsole() {
         <div className="p-4 rounded bg-[#f0f6ff] border border-[#c7dffb] flex items-start gap-3 shadow-sm">
           <Info className="w-4 h-4 text-[#0078d4] mt-0.5 shrink-0" />
           <div>
-            <h1 className="text-sm font-semibold text-[#1b1b1f] mb-0.5">
+            <h1 className="text-sm font-medium text-[#1b1b1f] mb-0.5">
               Deterministic Diagnostics Engine v3.0
             </h1>
             <p className="text-[13px] text-[#333] leading-relaxed">
@@ -148,13 +148,13 @@ export default function ElectricalDiagnosticConsole() {
             >
               {/* NEW: System Configuration (Drives Backend Thresholds) */}
               <div>
-                <h3 className="text-xs font-semibold text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
+                <h3 className="text-xs font-medium text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
                   <Settings2 className="w-3.5 h-3.5 text-[#0078d4]" /> System
                   Config
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1 uppercase">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1 uppercase">
                       Sys Voltage (kV)
                     </label>
                     <input
@@ -168,7 +168,7 @@ export default function ElectricalDiagnosticConsole() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1 uppercase">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1 uppercase">
                       Freq (Hz)
                     </label>
                     <input
@@ -186,14 +186,14 @@ export default function ElectricalDiagnosticConsole() {
 
               {/* Voltages */}
               <div>
-                <h3 className="text-xs font-semibold text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
+                <h3 className="text-xs font-medium text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
                   <Zap className="w-3.5 h-3.5 text-[#0078d4]" /> Phase Voltages
                   (V)
                 </h3>
                 <div className="grid grid-cols-3 gap-2">
                   {(["A", "B", "C"] as const).map((phase) => (
                     <div key={`v${phase}`}>
-                      <label className="block text-[10px] font-bold text-[#616161] mb-1">
+                      <label className="block text-[10px] font-medium text-[#616161] mb-1">
                         PHASE {phase}
                       </label>
                       <input
@@ -212,14 +212,14 @@ export default function ElectricalDiagnosticConsole() {
 
               {/* Currents */}
               <div>
-                <h3 className="text-xs font-semibold text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
+                <h3 className="text-xs font-medium text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
                   <Activity className="w-3.5 h-3.5 text-[#0078d4]" /> Phase
                   Currents (A)
                 </h3>
                 <div className="grid grid-cols-3 gap-2">
                   {(["A", "B", "C"] as const).map((phase) => (
                     <div key={`i${phase}`}>
-                      <label className="block text-[10px] font-bold text-[#616161] mb-1">
+                      <label className="block text-[10px] font-medium text-[#616161] mb-1">
                         PHASE {phase}
                       </label>
                       <input
@@ -238,13 +238,13 @@ export default function ElectricalDiagnosticConsole() {
 
               {/* Sequence Components */}
               <div>
-                <h3 className="text-xs font-semibold text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
+                <h3 className="text-xs font-medium text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
                   <ShieldAlert className="w-3.5 h-3.5 text-[#0078d4]" />{" "}
                   Sequence (V/A)
                 </h3>
                 <div className="grid grid-cols-3 gap-2">
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1">
                       POS (1)
                     </label>
                     <input
@@ -258,7 +258,7 @@ export default function ElectricalDiagnosticConsole() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1">
                       NEG (2)
                     </label>
                     <input
@@ -272,7 +272,7 @@ export default function ElectricalDiagnosticConsole() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1">
                       ZERO (0)
                     </label>
                     <input
@@ -290,12 +290,12 @@ export default function ElectricalDiagnosticConsole() {
 
               {/* Power */}
               <div>
-                <h3 className="text-xs font-semibold text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
+                <h3 className="text-xs font-medium text-[#1b1b1f] mb-3 flex items-center gap-2 pb-2 border-b border-[#ededed]">
                   <Info className="w-3.5 h-3.5 text-[#0078d4]" /> System Power
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1 uppercase">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1 uppercase">
                       Active (kW)
                     </label>
                     <input
@@ -309,7 +309,7 @@ export default function ElectricalDiagnosticConsole() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-[#616161] mb-1 uppercase">
+                    <label className="block text-[10px] font-medium text-[#616161] mb-1 uppercase">
                       Reactive (kVAR)
                     </label>
                     <input
@@ -328,7 +328,7 @@ export default function ElectricalDiagnosticConsole() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#0078d4] hover:bg-[#106ebe] text-white font-semibold py-2.5 px-4 rounded transition-colors flex items-center cursor-pointer justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed mt-2 shadow-sm"
+                className="w-full bg-[#0078d4] hover:bg-[#106ebe] text-white font-medium py-2.5 px-4 rounded transition-colors flex items-center cursor-pointer justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed mt-2 shadow-sm"
               >
                 {loading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
@@ -346,7 +346,7 @@ export default function ElectricalDiagnosticConsole() {
               <div className="p-4 bg-[#fde7e9] border border-[#f1bbbc] rounded text-[#a80000] flex gap-3 items-start mb-4 shadow-sm">
                 <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm font-bold mb-1">
+                  <p className="text-sm font-medium mb-1">
                     Diagnostic Pipeline Failed
                   </p>
                   <p className="text-sm">{error}</p>
@@ -373,7 +373,7 @@ export default function ElectricalDiagnosticConsole() {
                     priority
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-[#1b1b1f] mb-2 mt-4">
+                <h3 className="text-lg font-medium text-[#1b1b1f] mb-2 mt-4">
                   Awaiting Telemetry Analysis
                 </h3>
                 <p className="text-sm max-w-md text-[#616161]">
@@ -415,7 +415,7 @@ export default function ElectricalDiagnosticConsole() {
                     </motion.div>
                   </div>
                   <div className="text-center space-y-2 flex flex-col items-center">
-                    <h3 className="text-lg font-semibold text-[#1b1b1f] tracking-tight">
+                    <h3 className="text-lg font-medium text-[#1b1b1f] tracking-tight">
                       Computing Inverse Fortescue Transforms...
                     </h3>
                     <p className="text-sm font-medium text-[#0078d4] animate-pulse">
@@ -434,10 +434,10 @@ export default function ElectricalDiagnosticConsole() {
                     className={`p-6 sm:p-8 border-b flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${getSeverityColor(result.severity)}`}
                   >
                     <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider opacity-80 mb-1">
+                      <p className="text-[11px] font-medium uppercase tracking-wider opacity-80 mb-1">
                         System Status: {result.severity}
                       </p>
-                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
+                      <h2 className="text-xl sm:text-2xl font-medium tracking-tight">
                         {result.status}
                       </h2>
                     </div>
@@ -445,7 +445,7 @@ export default function ElectricalDiagnosticConsole() {
                       <div className="text-3xl font-black">
                         {result.confidence}%
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-wider opacity-80">
+                      <div className="text-[10px] font-medium uppercase tracking-wider opacity-80">
                         Deterministic Confidence
                       </div>
                     </div>
@@ -454,12 +454,12 @@ export default function ElectricalDiagnosticConsole() {
                   <div className="p-6 sm:p-8 space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="text-[11px] font-bold text-[#616161] uppercase tracking-wide mb-2">
+                        <h4 className="text-[11px] font-medium text-[#616161] uppercase tracking-wide mb-2">
                           Fault Localization
                         </h4>
                         <div className="inline-flex items-center gap-2 bg-[#fafafa] border border-[#e0e0e0] px-3 py-1.5 rounded">
                           <Zap className="w-4 h-4 text-[#c67d09]" />
-                          <p className="text-sm text-[#1b1b1f] font-semibold">
+                          <p className="text-sm text-[#1b1b1f] font-medium">
                             {result.fault_localization}
                           </p>
                         </div>
@@ -467,7 +467,7 @@ export default function ElectricalDiagnosticConsole() {
                     </div>
 
                     <div>
-                      <h4 className="text-[11px] font-bold text-[#616161] uppercase tracking-wide mb-3">
+                      <h4 className="text-[11px] font-medium text-[#616161] uppercase tracking-wide mb-3">
                         Technical Analysis
                       </h4>
                       <div className="text-sm text-[#444] leading-relaxed bg-[#fafafa] p-5 rounded border border-[#ededed]">
@@ -476,7 +476,7 @@ export default function ElectricalDiagnosticConsole() {
                     </div>
 
                     <div>
-                      <h4 className="text-[11px] font-bold text-[#616161] uppercase tracking-wide mb-4">
+                      <h4 className="text-[11px] font-medium text-[#616161] uppercase tracking-wide mb-4">
                         Diagnostic Reasoning Steps
                       </h4>
                       <ul className="space-y-0 bg-white border border-[#ededed] rounded overflow-hidden">
@@ -496,7 +496,7 @@ export default function ElectricalDiagnosticConsole() {
 
                     {result.recommended_actions?.length > 0 && (
                       <div className="pt-6 border-t border-[#ededed]">
-                        <h4 className="text-[11px] font-bold text-[#616161] uppercase tracking-wide mb-4 flex items-center gap-2">
+                        <h4 className="text-[11px] font-medium text-[#616161] uppercase tracking-wide mb-4 flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-[#107c10]" />{" "}
                           Recommended Corrective Actions
                         </h4>
@@ -506,11 +506,11 @@ export default function ElectricalDiagnosticConsole() {
                               key={idx}
                               className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white border border-[#e0e0e0] rounded hover:border-[#0078d4] transition-colors gap-3"
                             >
-                              <span className="font-semibold text-[#333] text-sm">
+                              <span className="font-medium text-[#333] text-sm">
                                 {act.action}
                               </span>
                               <span
-                                className={`text-[10px] px-3 py-1.5 rounded font-bold tracking-wider self-start sm:self-auto ${
+                                className={`text-[10px] px-3 py-1.5 rounded font-medium tracking-wider self-start sm:self-auto ${
                                   act.urgency?.toUpperCase() === "IMMEDIATE"
                                     ? "bg-[#fde7e9] text-[#a80000]"
                                     : act.urgency?.toUpperCase() === "SCHEDULED"

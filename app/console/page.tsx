@@ -6,7 +6,7 @@ import { Settings, Sparkles, ChevronRight } from "lucide-react";
 
 export default function SelectConsolePage() {
   return (
-    <div className="min-h-screen bg-[#faf9f8] text-gray-900 font-sans">
+    <div className="min-h-screen bg-[#faf9f8] text-gray-900 ">
       {/* ── AZURE-STYLE HEADER ── */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -15,7 +15,7 @@ export default function SelectConsolePage() {
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-gray-600">Console Setup</span>
           </div>
-          <h1 className="text-2xl font-semibold text-gray-900 tracking-tight mb-1">
+          <h1 className="text-2xl font-medium text-gray-900 tracking-tight mb-1">
             Select Console Mode
           </h1>
           <p className="text-[13px] text-gray-600">
@@ -33,7 +33,7 @@ export default function SelectConsolePage() {
               <div className="w-10 h-10 bg-[#f3f2f1] text-gray-700 flex items-center justify-center rounded-sm shrink-0">
                 <Settings size={20} />
               </div>
-              <h2 className="text-[18px] font-semibold text-gray-900">
+              <h2 className="text-[18px] font-medium text-gray-900">
                 Manual Console
               </h2>
             </div>
@@ -44,7 +44,7 @@ export default function SelectConsolePage() {
             </p>
 
             <div className="flex-grow">
-              <h3 className="text-[12px] font-semibold text-gray-900 uppercase tracking-wide mb-3 border-b border-gray-100 pb-1">
+              <h3 className="text-[12px] font-medium text-gray-900 uppercase tracking-wide mb-3 border-b border-gray-100 pb-1">
                 Features
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
@@ -70,7 +70,7 @@ export default function SelectConsolePage() {
             <div className="mt-auto pt-4 border-t border-gray-50">
               <Link
                 href="/console/manual"
-                className="block w-full text-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 font-semibold py-2 px-4 rounded-sm text-[13px] transition-colors"
+                className="block w-full text-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 font-medium py-2 px-4 rounded-sm text-[13px] transition-colors"
               >
                 Manual Setup
               </Link>
@@ -84,11 +84,11 @@ export default function SelectConsolePage() {
                 <div className="w-10 h-10 bg-[#0078D4] text-white flex items-center justify-center rounded-sm shrink-0">
                   <Sparkles size={20} />
                 </div>
-                <h2 className="text-[18px] font-semibold text-gray-900">
+                <h2 className="text-[18px] font-medium text-gray-900">
                   Automated Console
                 </h2>
               </div>
-              <span className="bg-[#f3f9fd] text-[#0078D4] border border-[#0078D4] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide rounded-sm hidden sm:block">
+              <span className="bg-[#f3f9fd] text-[#0078D4] border border-[#0078D4] px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide rounded-sm hidden sm:block">
                 Recommended
               </span>
             </div>
@@ -99,7 +99,7 @@ export default function SelectConsolePage() {
             </p>
 
             <div className="flex-grow">
-              <h3 className="text-[12px] font-semibold text-gray-900 uppercase tracking-wide mb-3 border-b border-gray-100 pb-1">
+              <h3 className="text-[12px] font-medium text-gray-900 uppercase tracking-wide mb-3 border-b border-gray-100 pb-1">
                 Features
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
@@ -125,7 +125,7 @@ export default function SelectConsolePage() {
             <div className="mt-auto pt-4 border-t border-gray-50">
               <Link
                 href="/console/direct"
-                className="block w-full text-center bg-[#0078D4] hover:bg-[#005a9e] text-white font-semibold py-2 px-4 rounded-sm text-[13px] transition-colors"
+                className="block w-full text-center bg-[#0078D4] hover:bg-[#005a9e] text-white font-medium py-2 px-4 rounded-sm text-[13px] transition-colors"
               >
                 Automated Setup
               </Link>
@@ -136,7 +136,7 @@ export default function SelectConsolePage() {
         {/* ── COMPARISON TABLE ── */}
         <section className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 bg-[#fafafa]">
-            <h2 className="text-[15px] font-semibold text-gray-900">
+            <h2 className="text-[15px] font-medium text-gray-900">
               Quick Comparison
             </h2>
           </div>
@@ -144,20 +144,20 @@ export default function SelectConsolePage() {
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead className="bg-[#fafafa] border-b border-gray-200">
                 <tr>
-                  <th className="px-6 py-3 text-[12px] font-semibold text-gray-700 uppercase w-1/3">
+                  <th className="px-6 py-3 text-[12px] font-medium text-gray-700 uppercase w-1/3">
                     Feature
                   </th>
-                  <th className="px-6 py-3 text-[12px] font-semibold text-gray-700 uppercase w-1/3">
+                  <th className="px-6 py-3 text-[12px] font-medium text-gray-700 uppercase w-1/3">
                     Automated
                   </th>
-                  <th className="px-6 py-3 text-[12px] font-semibold text-gray-700 uppercase w-1/3 border-l border-gray-100">
+                  <th className="px-6 py-3 text-[12px] font-medium text-gray-700 uppercase w-1/3 border-l border-gray-100">
                     Manual
                   </th>
                 </tr>
               </thead>
               <tbody className="text-[13px] text-gray-800 divide-y divide-gray-100">
                 <tr className="hover:bg-[#f6f6f6] transition-colors">
-                  <td className="px-6 py-3 font-semibold text-gray-900">
+                  <td className="px-6 py-3 font-medium text-gray-900">
                     Setup Time
                   </td>
                   <td className="px-6 py-3">Minutes</td>
@@ -166,7 +166,7 @@ export default function SelectConsolePage() {
                   </td>
                 </tr>
                 <tr className="hover:bg-[#f6f6f6] transition-colors">
-                  <td className="px-6 py-3 font-semibold text-gray-900">
+                  <td className="px-6 py-3 font-medium text-gray-900">
                     Customization
                   </td>
                   <td className="px-6 py-3 text-gray-500">Limited</td>
@@ -175,7 +175,7 @@ export default function SelectConsolePage() {
                   </td>
                 </tr>
                 <tr className="hover:bg-[#f6f6f6] transition-colors">
-                  <td className="px-6 py-3 font-semibold text-gray-900">
+                  <td className="px-6 py-3 font-medium text-gray-900">
                     Maintenance
                   </td>
                   <td className="px-6 py-3">Minimal</td>
@@ -184,10 +184,10 @@ export default function SelectConsolePage() {
                   </td>
                 </tr>
                 <tr className="hover:bg-[#f6f6f6] transition-colors">
-                  <td className="px-6 py-3 font-semibold text-gray-900">
+                  <td className="px-6 py-3 font-medium text-gray-900">
                     AI Insights
                   </td>
-                  <td className="px-6 py-3 text-[#0078D4] font-semibold">
+                  <td className="px-6 py-3 text-[#0078D4] font-medium">
                     Included
                   </td>
                   <td className="px-6 py-3 text-gray-500 border-l border-gray-100">
@@ -195,7 +195,7 @@ export default function SelectConsolePage() {
                   </td>
                 </tr>
                 <tr className="hover:bg-[#f6f6f6] transition-colors">
-                  <td className="px-6 py-3 font-semibold text-gray-900">
+                  <td className="px-6 py-3 font-medium text-gray-900">
                     Learning Curve
                   </td>
                   <td className="px-6 py-3">None</td>

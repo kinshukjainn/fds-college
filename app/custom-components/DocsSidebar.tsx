@@ -58,7 +58,7 @@ export function DocsSidebar({ className = "" }: { className?: string }) {
     <>
       {/* ─── Mobile Top Header ─── */}
       <div className="flex items-center justify-between bg-[#202020] px-4 py-2 text-white lg:hidden border-b border-gray-800 z-40 relative">
-        <span className=" text-sm font-bold">FDS.ai Docs</span>
+        <span className=" text-sm font-medium">FDS.ai Docs</span>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-1 text-gray-300 hover:text-white transition-colors"
@@ -87,7 +87,7 @@ export function DocsSidebar({ className = "" }: { className?: string }) {
       >
         {/* Simple Header */}
         <div className="mb-6 hidden lg:block">
-          <h2 className=" text-lg font-bold text-white border-b border-gray-100 pb-2">
+          <h2 className=" text-lg font-medium text-white border-b border-gray-100 pb-2">
             <span className="text-red-500 ">M-</span>{" "}
             <span className=" text-white ">Scada</span> Documentation
           </h2>
@@ -103,7 +103,7 @@ export function DocsSidebar({ className = "" }: { className?: string }) {
                   href={item.href}
                   className={`
                     hover:underline inline-block py-1
-                    ${isActive ? "text-blue-500 font-bold" : "text-white"}
+                    ${isActive ? "text-blue-500 font-medium" : "text-white"}
                   `}
                 >
                   {isActive ? `> ${item.title}` : item.title}

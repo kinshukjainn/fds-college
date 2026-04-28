@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { getFeedbacksAction } from "../api/fdb/actions"; // Adjust path as needed
 
 type Feedback = {
   id: number;
   created_at: string;
-  category: "blogs" | "project" | "portfolio";
+  category: "Blogs" | "Projects" | "Portfolio Website";
   project_name: string | null;
   name: string;
   github_id: string | null;
@@ -21,7 +22,8 @@ interface MarkdownComponentProps {
   children?: React.ReactNode;
 }
 
-const PROJECTS = ["FDS.AI", "Password Generator ( zeroleaks)"];
+// Updated to only include MScada
+const PROJECTS = ["MScada"];
 
 // ============================================================================
 // Utility Functions
@@ -48,7 +50,6 @@ const timeAgo = (dateString: string) => {
 };
 
 const getIssueTitle = (markdownText: string) => {
-  // Strip basic markdown syntax to get a clean title preview
   const raw = markdownText.replace(/[#*`>\-_]/g, "").trim();
   const firstLine = raw.split("\n")[0];
   return firstLine.length > 80 ? firstLine.slice(0, 80) + "..." : firstLine;
@@ -76,12 +77,13 @@ export default function FeedbacksList() {
     setIsLoading(true);
     setErrorMsg(null);
     try {
-      const response = await fetch("/api/fdb");
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || "Failed to fetch.");
-      setFeedbacks(
-        (result || []).filter((f: Feedback) => f.category === "project"),
-      );
+      // Calling the Next.js server action directly
+      const result = await getFeedbacksAction();
+
+      if (!result.success) throw new Error(result.error || "Failed to fetch.");
+
+      // DB already filters for 'MScada' and 'approved'
+      setFeedbacks((result.data as Feedback[]) || []);
     } catch (err: unknown) {
       const message =
         err instanceof Error ? err.message : "Unknown error occurred.";
@@ -116,13 +118,13 @@ export default function FeedbacksList() {
       <div className="max-w-7xl mx-auto">
         {/* ── TOP HEADER (Breadcrumbs) ── */}
         <div className="mb-1">
-          <h1 className="text-[20px] sm:text-[24px] font-bold m-0 p-0">
+          <h1 className="text-[20px] sm:text-[24px] font-medium m-0 p-0">
             <a href="#" className="text-[#0000ee] hover:underline no-underline">
               projects
             </a>{" "}
             /{" "}
             <a href="#" className="text-[#0000ee] hover:underline no-underline">
-              issues.git
+              mscada.git
             </a>{" "}
             / logs
           </h1>
@@ -131,23 +133,25 @@ export default function FeedbacksList() {
         {/* ── META INFO TABLE ── */}
         <div className=" py-3 px-2 sm:px-4 mb-4">
           <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-y-1 sm:gap-x-4 text-[13px] sm:text-[14px]">
-            <div className="text-[#555555] font-bold">description</div>
-            <div>Project Issue Tracker & Feedback Archive</div>
+            <div className="text-[#555555] font-medium">description</div>
+            <div>MScada Issue Tracker & Feedback Archive</div>
 
-            <div className="text-[#555555] font-bold">latest report</div>
+            <div className="text-[#555555] font-medium">latest report</div>
             <div>
               {lastChangeDate} ({feedbacks.length} total issues)
             </div>
 
-            <div className="text-[#555555] font-bold">rules</div>
+            <div className="text-[#555555] font-medium">rules</div>
             <div>Avoid duplicate reports. Include reproduction steps.</div>
 
             {/* Classic-style Filters Toggle */}
-            <div className="text-[#555555] mt-2 sm:mt-0 font-bold">filters</div>
+            <div className="text-[#555555] mt-2 sm:mt-0 font-medium">
+              filters
+            </div>
             <div className="mt-2 sm:mt-0">
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="text-[#0000ee] hover:underline bg-transparent font-semibold  border-none p-0 cursor-pointer"
+                className="text-[#0000ee] hover:underline bg-transparent font-medium  border-none p-0 cursor-pointer"
               >
                 {showFilters
                   ? "hide search & filters"
@@ -162,7 +166,7 @@ export default function FeedbacksList() {
           <div className=" p-3 mb-4 text-[13px]">
             <div className="flex flex-wrap gap-4 items-end">
               <label className="flex flex-col gap-1">
-                <span className="font-bold">Search:</span>
+                <span className="font-medium">Search:</span>
                 <input
                   type="text"
                   value={searchQuery}
@@ -172,7 +176,7 @@ export default function FeedbacksList() {
                 />
               </label>
               <label className="flex flex-col gap-1">
-                <span className="font-bold">Project Target:</span>
+                <span className="font-medium">Project Target:</span>
                 <select
                   value={filterProject}
                   onChange={(e) => setFilterProject(e.target.value)}
@@ -206,7 +210,7 @@ export default function FeedbacksList() {
         )}
 
         {/* ── SECTION HEADER ── */}
-        <div className=" py-1.5 px-2 font-bold mb-2 flex justify-between">
+        <div className=" py-1.5 px-2 font-medium mb-2 flex justify-between">
           <span className="text-xl ">Issues log</span>
           <span className="font-normal text-[13px] text-[#555]">
             showing {filtered.length} matching
@@ -221,7 +225,7 @@ export default function FeedbacksList() {
         )}
 
         {errorMsg && (
-          <div className="p-4 text-[#cc0000] font-bold bg-[#ffdddd] border border-[#cc0000] mb-4">
+          <div className="p-4 text-[#cc0000] font-medium bg-[#ffdddd] border border-[#cc0000] mb-4">
             Error: {errorMsg}
             <button
               onClick={fetchFeedbacks}
@@ -253,7 +257,7 @@ export default function FeedbacksList() {
                     onClick={() => setExpandedId(isOpen ? null : fb.id)}
                     className={`${rowClass} flex flex-col md:flex-row md:items-center py-2 px-2 hover:bg-[#eef3f8] transition-colors gap-1 md:gap-4 cursor-pointer`}
                   >
-                    {/* Time & Reporter (Stacked on mobile, row on desktop) */}
+                    {/* Time & Reporter */}
                     <div className="flex flex-row md:flex-row gap-2 md:gap-4 shrink-0 text-gray-700  text-[13px] md:w-[220px]">
                       <span className="w-[85px] shrink-0">
                         {timeAgo(fb.created_at)}
@@ -268,7 +272,7 @@ export default function FeedbacksList() {
                     </div>
 
                     {/* Issue Title & Tag */}
-                    <div className="flex-1 min-w-0 font-bold text-black flex items-center flex-wrap gap-2 text-[14px]">
+                    <div className="flex-1 min-w-0 font-medium text-black flex items-center flex-wrap gap-2 text-[14px]">
                       <span className="break-words">{title}</span>
                       {fb.project_name && (
                         <span className="bg-[#ccffcc] border border-[#000000] text-black text-[12px] font-medium px-2 py-1 leading-tight whitespace-nowrap">
@@ -278,7 +282,7 @@ export default function FeedbacksList() {
                     </div>
 
                     {/* Expand Link */}
-                    <div className="shrink-0 text-[12px] md:text-[13px] text-[#0000ee] bg-yellow-200 border border-black  w-max px-2  font-semibold  mt-1 md:mt-0 md:text-right">
+                    <div className="shrink-0 text-[12px] md:text-[13px] text-[#0000ee] bg-yellow-200 border border-black  w-max px-2  font-medium  mt-1 md:mt-0 md:text-right">
                       {isOpen ? "Hide" : "Read"}
                     </div>
                   </div>
@@ -292,7 +296,7 @@ export default function FeedbacksList() {
                         </span>
                         <span>
                           <strong>Reporter:</strong>{" "}
-                          <a className="text-blue-800 font-semibold hover:underline">
+                          <a className="text-blue-800 font-medium hover:underline">
                             {fb.name}
                           </a>
                         </span>
@@ -312,22 +316,7 @@ export default function FeedbacksList() {
                         )}
                       </div>
 
-                      <div
-                        className="
-                        text-black leading-normal break-words
-                        [&_p]:mb-3 [&_p:last-child]:mb-0
-                        [&_h1]:text-[16px] [&_h1]:font-bold [&_h1]:mb-3 [&_h1]:mt-4 [&_h1]:border-b [&_h1]:border-[#eee] [&_h1]:pb-1
-                        [&_h2]:text-[15px] [&_h2]:font-bold [&_h2]:mb-2 [&_h2]:mt-3
-                        [&_h3]:text-[14px] [&_h3]:font-bold [&_h3]:mb-1 [&_h3]:mt-2
-                        [&_a]:text-[#0000ee] [&_a:hover]:underline [&_a]:break-all
-                        [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_li]:mb-1
-                        [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-3
-                        [&_blockquote]:border-l-[3px] [&_blockquote]:border-[#ccc] [&_blockquote]:pl-3 [&_blockquote]:text-[#555] [&_blockquote]: [&_blockquote]:my-3
-                        [&_code]:bg-[#f4f4f4] [&_code]:border [&_code]:border-[#ddd] [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-[12px] [&_code]:
-                        [&_pre]:bg-[#f4f4f4] [&_pre]:border [&_pre]:border-[#ccc] [&_pre]:p-3 [&_pre]:overflow-x-auto [&_pre]:my-4
-                        [&_pre_code]:bg-transparent [&_pre_code]:border-0 [&_pre_code]:p-0 [&_pre_code]:text-[13px]
-                      "
-                      >
+                      <div className="text-black leading-normal break-words [&_p]:mb-3 [&_p:last-child]:mb-0 [&_h1]:text-[16px] [&_h1]:font-medium [&_h1]:mb-3 [&_h1]:mt-4 [&_h1]:border-b [&_h1]:border-[#eee] [&_h1]:pb-1 [&_h2]:text-[15px] [&_h2]:font-medium [&_h2]:mb-2 [&_h2]:mt-3 [&_h3]:text-[14px] [&_h3]:font-medium [&_h3]:mb-1 [&_h3]:mt-2 [&_a]:text-[#0000ee] [&_a:hover]:underline [&_a]:break-all [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_li]:mb-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-3 [&_blockquote]:border-l-[3px] [&_blockquote]:border-[#ccc] [&_blockquote]:pl-3 [&_blockquote]:text-[#555] [&_blockquote]:my-3 [&_code]:bg-[#f4f4f4] [&_code]:border [&_code]:border-[#ddd] [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-[12px] [&_pre]:bg-[#f4f4f4] [&_pre]:border [&_pre]:border-[#ccc] [&_pre]:p-3 [&_pre]:overflow-x-auto [&_pre]:my-4 [&_pre_code]:bg-transparent [&_pre_code]:border-0 [&_pre_code]:p-0 [&_pre_code]:text-[13px]">
                         <ReactMarkdown
                           components={{
                             code({
@@ -363,7 +352,7 @@ export default function FeedbacksList() {
 
         {/* Pagination Indicator */}
         {!isLoading && !errorMsg && filtered.length > 0 && (
-          <div className="mt-2 px-2 text-[#0000ee] text-[13px] font-bold cursor-pointer hover:underline">
+          <div className="mt-2 px-2 text-[#0000ee] text-[13px] font-medium cursor-pointer hover:underline">
             ...
           </div>
         )}

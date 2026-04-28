@@ -212,7 +212,7 @@ export default function RepositoryViewer() {
       <div className="max-w-7xl mx-auto">
         {/* ── TOP HEADER (Breadcrumbs) ── */}
         <div className="mb-1">
-          <h1 className="text-[20px] sm:text-[24px] font-bold m-0 p-0 flex flex-wrap items-center gap-1.5 leading-tight">
+          <h1 className="text-[20px] sm:text-[24px] font-medium m-0 p-0 flex flex-wrap items-center gap-1.5 leading-tight">
             <Link href="/git-track">
               <span className="text-black hover:underline cursor-pointer">
                 tree
@@ -227,7 +227,7 @@ export default function RepositoryViewer() {
 
         <div className="text-[13px] sm:text-[14px] mb-3">
           <Link href="/git-track">
-            <span className="font-bold text-white px-2 py-1 bg-red-600 rounded-xs">
+            <span className="font-medium text-white px-2 py-1 bg-red-600 rounded-xs">
               Back to commits page
             </span>
           </Link>
@@ -237,7 +237,7 @@ export default function RepositoryViewer() {
         <div className="bg-[#f4f4f4] border-t border-b border-[#cccccc] py-3 px-2 sm:px-4 mb-4">
           <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-y-1 sm:gap-x-4 text-[13px] sm:text-[14px]">
             <div className="text-[#555555]">repository</div>
-            <div className=" font-bold">
+            <div className=" font-medium">
               {GITHUB_CONFIG.username}/{GITHUB_CONFIG.repository}
             </div>
 
@@ -262,7 +262,7 @@ export default function RepositoryViewer() {
                       onClick={() => !isCurrentFile && jumpToPath(buildPath)}
                       className={
                         isCurrentFile
-                          ? "text-black font-bold"
+                          ? "text-black font-medium"
                           : "text-black hover:underline cursor-pointer"
                       }
                     >
@@ -276,13 +276,13 @@ export default function RepositoryViewer() {
         </div>
 
         {/* ── SECTION HEADER ── */}
-        <div className="bg-[#e8e8e8] border-t border-b border-[#cccccc] py-1.5 px-2 font-bold mb-2 flex justify-between">
+        <div className="bg-[#e8e8e8] border-t border-b border-[#cccccc] py-1.5 px-2 font-medium mb-2 flex justify-between">
           <span>{viewMode === "tree" ? "tree directory" : "File Content"}</span>
         </div>
 
         {/* ── ERROR DISPLAY ── */}
         {error && (
-          <div className="p-4 text-[#cc0000] font-bold bg-[#ffdddd] border border-[#cc0000] mb-4">
+          <div className="p-4 text-[#cc0000] font-medium bg-[#ffdddd] border border-[#cc0000] mb-4">
             Error: {error}
           </div>
         )}
@@ -310,7 +310,7 @@ export default function RepositoryViewer() {
                     <div className="w-5 flex justify-center">
                       <Folder size={14} className="text-black fill-blue-100" />
                     </div>
-                    <div className="text-black hover:underline  text-[13px] font-bold select-none">
+                    <div className="text-black hover:underline  text-[13px] font-medium select-none">
                       ..
                     </div>
                   </div>
@@ -344,7 +344,7 @@ export default function RepositoryViewer() {
                           {icon}
                         </div>
                         <span
-                          className={`truncate  text-[13px] ${isFolder ? "text-black hover:underline font-bold" : "text-[#333] font-semibold hover:underline"}`}
+                          className={`truncate  text-[13px] ${isFolder ? "text-black hover:underline font-medium" : "text-[#333] font-medium hover:underline"}`}
                         >
                           {itemName}
                           {isFolder && "/"}
@@ -373,7 +373,7 @@ export default function RepositoryViewer() {
               </div>
             ) : (
               <div className="border border-[#ccc] bg-[#f8f8f8] overflow-x-auto">
-                <pre className="p-4 m-0 text-[13px] font-semibold  leading-snug text-[#333]">
+                <pre className="p-4 m-0 text-[13px] font-medium  leading-snug text-[#333]">
                   <code>{fileContent}</code>
                 </pre>
               </div>

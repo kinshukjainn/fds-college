@@ -2,32 +2,27 @@
 // Types
 // =========================
 
+// Replace the old TelemetryPayload interface with this:
 export interface TelemetryPayload {
-  // ── Core measurements (original 14 fields) ──
-  "Phase A Voltage (Volts)": number;
-  "Phase B Voltage (Volts)": number;
-  "Phase C Voltage (Volts)": number;
-  "Phase A Current (Amps)": number;
-  "Phase B Current (Amps)": number;
-  "Phase C Current (Amps)": number;
-  "Positive Sequence Voltage (Volts)": number;
-  "Negative Sequence Voltage (Volts)": number;
-  "Zero Sequence Voltage (Volts)": number;
-  "Positive Sequence Current (Amps)": number;
-  "Negative Sequence Current (Amps)": number;
-  "Zero Sequence Current (Amps)": number;
-  "Total Active Power (kW)": number;
-  "Total Reactive Power (kVAR)": number;
-
-  // ── System configuration (new — drives threshold selection and modeling) ──
-  "System Voltage Level (kV)": number;
-  "X/R Ratio": number;
-  "Fault Inception Angle (degrees)": number;
-  "Nominal Frequency (Hz)": number;
-  "CT Accuracy Class": number;
-  "Fault MVA Base (MVA)": number;
+  voltageA: number;
+  voltageB: number;
+  voltageC: number;
+  currentA: number;
+  currentB: number;
+  currentC: number;
+  seqPositive: number;
+  seqNegative: number;
+  seqZero: number;
+  activePower: number;
+  reactivePower: number;
+  sysVoltageLevel: number;
+  xrRatio: number;
+  nominalFreq: number;
+  faultMVA: number;
 }
 
+// Keep your function signature the same, it will now expect the new keys:
+// export const runDiagnosticAnalysis = async (payload: TelemetryPayload): Promise<DiagnosticResponse> => { ... }
 export interface DiagnosticResponse {
   status: string;
   severity: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "NORMAL";

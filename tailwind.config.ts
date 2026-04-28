@@ -28,6 +28,7 @@ const config: Config = {
         ptSans: ["var(--font-pt-sans)", "sans-serif"],
         lucide: ["var(--font-lucide)", "sans-serif"],
         segoeUI: ["var(--font-segoe-ui)", "sans-serif"],
+        rubik: ["var(--font-rubik)", "sans-serif"],
         robotoSerif: ["var(--font-roboto-slab)", "sans-serif"],
       },
     },

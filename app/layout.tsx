@@ -10,6 +10,7 @@ import {
   Geist_Mono,
   Inter,
 } from "next/font/google";
+import { Rubik } from "next/font/google";
 
 import localFont from "next/font/local";
 
@@ -74,6 +75,13 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+const rubik = Rubik({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"], // choose what you need
+  variable: "--font-rubik", // optional (for CSS variables)
+  display: "swap",
+});
+
 const workSans = Work_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -111,7 +119,7 @@ export default function RootLayout({
     <html lang="en" data-google-analytics-opt-out="">
       <body
         // 👇 Add inter.variable to your class string
-        className={`${geistSans.variable} ${robotoSlab.variable} ${ptSans.variable} ${arimo.variable} ${dmMono.variable}  ${roboto.variable} ${workSans.variable} ${geistMono.variable} ${lucideSans.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${robotoSlab.variable} ${ptSans.variable} ${arimo.variable} ${dmMono.variable}  ${roboto.variable} ${workSans.variable} ${geistMono.variable} ${lucideSans.variable} ${rubik.variable} ${inter.variable} antialiased`}
       >
         <Header />
         {children}
