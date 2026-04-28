@@ -394,7 +394,7 @@ export default function ElectricalDiagnosticConsole() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute w-72 h-72 bg-[#0078d4] rounded-full blur-[80px] -z-10 pointer-events-none"
+                  className="absolute w-72 h-72 bg-[#0078d4] rounded-sm blur-[80px] -z-10 pointer-events-none"
                 />
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -402,7 +402,7 @@ export default function ElectricalDiagnosticConsole() {
                   transition={{ duration: 0.6 }}
                   className="flex flex-col items-center space-y-6 z-10"
                 >
-                  <div className="relative flex items-center justify-center p-4 bg-[#f0f6ff] rounded-full border border-[#c7dffb]">
+                  <div className="relative flex items-center justify-center p-4 bg-[#f0f6ff] rounded-sm border border-[#c7dffb]">
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{

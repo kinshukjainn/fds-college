@@ -314,8 +314,8 @@ export default function TechPage() {
                 </div>
                 <div className="flex items-center gap-2 text-[12px] font-mono text-[#107C10]">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#107C10] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#107C10]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-75"></span>
+                    <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107C10]"></span>
                   </span>
                   DEPLOYED
                 </div>

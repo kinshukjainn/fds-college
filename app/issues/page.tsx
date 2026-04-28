@@ -3,6 +3,18 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { getFeedbacksAction } from "../api/fdb/actions"; // Adjust path as needed
+import {
+  MessageSquare,
+  Search,
+  Filter,
+  ChevronDown,
+  ChevronUp,
+  Github,
+  User,
+  Calendar,
+  RefreshCw,
+  Inbox,
+} from "lucide-react";
 
 type Feedback = {
   id: number;
@@ -77,12 +89,8 @@ export default function FeedbacksList() {
     setIsLoading(true);
     setErrorMsg(null);
     try {
-      // Calling the Next.js server action directly
       const result = await getFeedbacksAction();
-
       if (!result.success) throw new Error(result.error || "Failed to fetch.");
-
-      // DB already filters for 'MScada' and 'approved'
       setFeedbacks((result.data as Feedback[]) || []);
     } catch (err: unknown) {
       const message =
@@ -114,75 +122,80 @@ export default function FeedbacksList() {
       : "N/A";
 
   return (
-    <div className="min-h-screen bg-white text-black  text-[14px] sm:text-[15px] p-2 sm:p-4 selection:bg-[#cceeff]">
-      <div className="max-w-7xl mx-auto">
-        {/* ── TOP HEADER (Breadcrumbs) ── */}
-        <div className="mb-1">
-          <h1 className="text-[20px] sm:text-[24px] font-medium m-0 p-0">
-            <a href="#" className="text-[#0000ee] hover:underline no-underline">
-              projects
-            </a>{" "}
-            /{" "}
-            <a href="#" className="text-[#0000ee] hover:underline no-underline">
-              mscada.git
-            </a>{" "}
-            / logs
-          </h1>
-        </div>
-
-        {/* ── META INFO TABLE ── */}
-        <div className=" py-3 px-2 sm:px-4 mb-4">
-          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-y-1 sm:gap-x-4 text-[13px] sm:text-[14px]">
-            <div className="text-[#555555] font-medium">description</div>
-            <div>MScada Issue Tracker & Feedback Archive</div>
-
-            <div className="text-[#555555] font-medium">latest report</div>
+    <div className="min-h-screen bg-gray-50/50 text-gray-900 font-sans p-4 sm:p-8 selection:bg-blue-200">
+      <div className="max-w-5xl mx-auto">
+        {/* ── HEADER ── */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-white border border-gray-200 shadow-sm rounded-sm">
+              <MessageSquare className="w-6 h-6 text-blue-600" />
+            </div>
             <div>
-              {lastChangeDate} ({feedbacks.length} total issues)
+              <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+                Feedback & Issues
+              </h1>
+              <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+                <span>MScada Tracker</span>
+                <span className="text-gray-300">•</span>
+                <span className="flex items-center gap-1">
+                  <Calendar size={14} /> Last report: {lastChangeDate}
+                </span>
+              </div>
             </div>
+          </div>
 
-            <div className="text-[#555555] font-medium">rules</div>
-            <div>Avoid duplicate reports. Include reproduction steps.</div>
-
-            {/* Classic-style Filters Toggle */}
-            <div className="text-[#555555] mt-2 sm:mt-0 font-medium">
-              filters
-            </div>
-            <div className="mt-2 sm:mt-0">
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="text-[#0000ee] hover:underline bg-transparent font-medium  border-none p-0 cursor-pointer"
-              >
-                {showFilters
-                  ? "hide search & filters"
-                  : "show search & filters"}
-              </button>
-            </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-xl transition-all border ${
+                showFilters
+                  ? "bg-blue-50 border-blue-200 text-blue-700"
+                  : "bg-white border-gray-200 text-gray-600 shadow-sm hover:bg-gray-50"
+              }`}
+            >
+              <Filter size={16} />
+              Filters
+            </button>
+            <button
+              onClick={fetchFeedbacks}
+              className="flex items-center gap-2 text-sm font-medium text-white bg-gray-900 border border-gray-800 shadow-sm px-4 py-2 rounded-xl hover:bg-gray-800 transition-all"
+            >
+              <RefreshCw
+                size={16}
+                className={isLoading ? "animate-spin" : ""}
+              />
+              Refresh
+            </button>
           </div>
         </div>
 
         {/* ── FILTERS BLOCK ── */}
         {showFilters && (
-          <div className=" p-3 mb-4 text-[13px]">
-            <div className="flex flex-wrap gap-4 items-end">
-              <label className="flex flex-col gap-1">
-                <span className="font-medium">Search:</span>
+          <div className="bg-white border border-gray-200 shadow-sm rounded-sm p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-end">
+              <label className="flex flex-col gap-1.5">
+                <span className="text-gray-700 font-medium text-sm flex items-center gap-1.5">
+                  <Search size={14} className="text-gray-400" /> Search Issues
+                </span>
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Keywords, email, etc..."
-                  className="border-2 rounded  border-gray-700  px-1 py-0.5 w-48"
+                  placeholder="Keywords, email, author..."
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                 />
               </label>
-              <label className="flex flex-col gap-1">
-                <span className="font-medium">Project Target:</span>
+
+              <label className="flex flex-col gap-1.5">
+                <span className="text-gray-700 font-medium text-sm">
+                  Target
+                </span>
                 <select
                   value={filterProject}
                   onChange={(e) => setFilterProject(e.target.value)}
-                  className="border border-[#999] px-1 py-0.5"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                 >
-                  <option value="all">all projects</option>
+                  <option value="all">All Projects</option>
                   {PROJECTS.map((p) => (
                     <option key={p} value={p}>
                       {p}
@@ -190,46 +203,37 @@ export default function FeedbacksList() {
                   ))}
                 </select>
               </label>
+
               <button
                 onClick={() => {
                   setSearchQuery("");
                   setFilterProject("all");
                 }}
-                className="bg-[#e0e0e0] rounded border border-[#999] px-2 py-0.5 hover:bg-[#ccc] cursor-pointer"
+                className="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-xl font-medium transition-colors focus:outline-none text-sm border border-gray-200"
               >
-                clear
-              </button>
-              <button
-                onClick={fetchFeedbacks}
-                className="bg-[#e0e0e0] border border-[#999] px-2 py-0.5 hover:bg-[#ccc] rounded  cursor-pointer ml-auto"
-              >
-                refresh archive
+                Clear Filters
               </button>
             </div>
           </div>
         )}
 
-        {/* ── SECTION HEADER ── */}
-        <div className=" py-1.5 px-2 font-medium mb-2 flex justify-between">
-          <span className="text-xl ">Issues log</span>
-          <span className="font-normal text-[13px] text-[#555]">
-            showing {filtered.length} matching
-          </span>
-        </div>
-
         {/* ── ERROR & LOADING STATES ── */}
         {isLoading && (
-          <div className="p-4 text-[#555] ">
-            Loading... till then enjoy coffee..
+          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-sm shadow-sm">
+            <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-sm animate-spin" />
+            Loading feedback archive...
           </div>
         )}
 
         {errorMsg && (
-          <div className="p-4 text-[#cc0000] font-medium bg-[#ffdddd] border border-[#cc0000] mb-4">
-            Error: {errorMsg}
+          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-sm mb-6 flex flex-wrap items-center gap-4 justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-sm bg-red-500" />
+              <span className="font-medium">{errorMsg}</span>
+            </div>
             <button
               onClick={fetchFeedbacks}
-              className="ml-4 underline text-[#0000ee] bg-transparent border-none cursor-pointer"
+              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-lg transition-colors font-medium"
             >
               Retry
             </button>
@@ -237,123 +241,180 @@ export default function FeedbacksList() {
         )}
 
         {!isLoading && !errorMsg && filtered.length === 0 && (
-          <div className="p-4 text-[#555]  border border-[#eee]">
-            wooow.. so perfect app..no fixes found .. come again later
+          <div className="p-16 text-center text-gray-500 bg-white border border-gray-200 rounded-sm shadow-sm flex flex-col items-center gap-3">
+            <Inbox size={48} className="text-gray-300" />
+            <p className="text-base font-medium text-gray-900">
+              No issues found
+            </p>
+            <p className="text-sm">
+              We couldn&apos;t find any feedback matching your criteria.
+            </p>
           </div>
         )}
 
         {/* ── LIST ── */}
         {!isLoading && !errorMsg && filtered.length > 0 && (
-          <div className="w-full flex flex-col border-b border-[#eee]">
-            {filtered.map((fb, index) => {
-              const isOpen = expandedId === fb.id;
-              const title = getIssueTitle(fb.feedback);
-              const rowClass = index % 2 === 0 ? "bg-white" : "bg-[#f8f8f8]";
+          <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
+            {/* Header row for context */}
+            <div className="bg-gray-50/80 border-b border-gray-100 px-6 py-3 flex justify-between items-center text-sm font-medium text-gray-500">
+              <span>{filtered.length} Open Issues</span>
+            </div>
 
-              return (
-                <div key={fb.id} className="flex flex-col">
-                  {/* Row */}
-                  <div
-                    onClick={() => setExpandedId(isOpen ? null : fb.id)}
-                    className={`${rowClass} flex flex-col md:flex-row md:items-center py-2 px-2 hover:bg-[#eef3f8] transition-colors gap-1 md:gap-4 cursor-pointer`}
-                  >
-                    {/* Time & Reporter */}
-                    <div className="flex flex-row md:flex-row gap-2 md:gap-4 shrink-0 text-gray-700  text-[13px] md:w-[220px]">
-                      <span className="w-[85px] shrink-0">
-                        {timeAgo(fb.created_at)}
-                      </span>
-                      <a
-                        href={`mailto:${fb.name}`}
-                        className="truncate text-blue-800 underline  w-[148px]"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {fb.email}
-                      </a>
-                    </div>
+            <div className="divide-y divide-gray-100">
+              {filtered.map((fb) => {
+                const isOpen = expandedId === fb.id;
+                const title = getIssueTitle(fb.feedback);
 
-                    {/* Issue Title & Tag */}
-                    <div className="flex-1 min-w-0 font-medium text-black flex items-center flex-wrap gap-2 text-[14px]">
-                      <span className="break-words">{title}</span>
-                      {fb.project_name && (
-                        <span className="bg-[#ccffcc] border border-[#000000] text-black text-[12px] font-medium px-2 py-1 leading-tight whitespace-nowrap">
-                          {fb.project_name}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Expand Link */}
-                    <div className="shrink-0 text-[12px] md:text-[13px] text-[#0000ee] bg-yellow-200 border border-black  w-max px-2  font-medium  mt-1 md:mt-0 md:text-right">
-                      {isOpen ? "Hide" : "Read"}
-                    </div>
-                  </div>
-
-                  {/* Expanded Content Area */}
-                  {isOpen && (
-                    <div className="border-l-[4px] border-[#0000ee] bg-[#fdfdfd] border-y border-y-[#eee] p-4 ml-2 my-2 text-[13px]">
-                      <div className="mb-4 pb-2 border-b border-[#eee] text-[#555] flex flex-wrap gap-4">
-                        <span>
-                          <strong>Issue id:</strong> #{fb.id}
-                        </span>
-                        <span>
-                          <strong>Reporter:</strong>{" "}
-                          <a className="text-blue-800 font-medium hover:underline">
-                            {fb.name}
-                          </a>
-                        </span>
-                        {fb.github_id && (
-                          <span>
-                            <strong>GitHub:</strong>{" "}
-                            <a
-                              href={`https://github.com/${fb.github_id.replace("@", "")}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-[#0000ee] hover:underline"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              @{fb.github_id.replace("@", "")}
-                            </a>
+                return (
+                  <div key={fb.id} className="flex flex-col transition-colors">
+                    {/* ── ROW HEADER ── */}
+                    <div
+                      onClick={() => setExpandedId(isOpen ? null : fb.id)}
+                      className={`flex flex-col sm:flex-row sm:items-start p-4 sm:p-6 cursor-pointer group ${
+                        isOpen ? "bg-blue-50/30" : "hover:bg-gray-50"
+                      }`}
+                    >
+                      <div className="flex gap-4 items-start flex-1 min-w-0">
+                        {/* Avatar Placeholder */}
+                        <div className="w-10 h-10 rounded-sm bg-gradient-to-tr from-blue-100 to-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-blue-700 font-semibold text-sm">
+                            {fb.name.charAt(0).toUpperCase()}
                           </span>
-                        )}
+                        </div>
+
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-wrap items-center gap-2 mb-1">
+                            <h3 className="text-base font-semibold text-gray-900 truncate max-w-full group-hover:text-blue-600 transition-colors">
+                              {title}
+                            </h3>
+                            {fb.project_name && (
+                              <span className="bg-blue-50 text-blue-700 border border-blue-200 text-xs font-medium px-2 py-0.5 rounded-sm shrink-0">
+                                {fb.project_name}
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-center flex-wrap gap-x-4 gap-y-2 text-sm text-gray-500">
+                            <span className="flex items-center gap-1.5">
+                              <User size={14} className="text-gray-400" />
+                              <span className="font-medium text-gray-700">
+                                {fb.name}
+                              </span>
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                              <Calendar size={14} className="text-gray-400" />
+                              {timeAgo(fb.created_at)}
+                            </span>
+                            <span className="text-gray-400 text-xs">
+                              #{fb.id}
+                            </span>
+                          </div>
+                        </div>
                       </div>
 
-                      <div className="text-black leading-normal break-words [&_p]:mb-3 [&_p:last-child]:mb-0 [&_h1]:text-[16px] [&_h1]:font-medium [&_h1]:mb-3 [&_h1]:mt-4 [&_h1]:border-b [&_h1]:border-[#eee] [&_h1]:pb-1 [&_h2]:text-[15px] [&_h2]:font-medium [&_h2]:mb-2 [&_h2]:mt-3 [&_h3]:text-[14px] [&_h3]:font-medium [&_h3]:mb-1 [&_h3]:mt-2 [&_a]:text-[#0000ee] [&_a:hover]:underline [&_a]:break-all [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-3 [&_li]:mb-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-3 [&_blockquote]:border-l-[3px] [&_blockquote]:border-[#ccc] [&_blockquote]:pl-3 [&_blockquote]:text-[#555] [&_blockquote]:my-3 [&_code]:bg-[#f4f4f4] [&_code]:border [&_code]:border-[#ddd] [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-[12px] [&_pre]:bg-[#f4f4f4] [&_pre]:border [&_pre]:border-[#ccc] [&_pre]:p-3 [&_pre]:overflow-x-auto [&_pre]:my-4 [&_pre_code]:bg-transparent [&_pre_code]:border-0 [&_pre_code]:p-0 [&_pre_code]:text-[13px]">
-                        <ReactMarkdown
-                          components={{
-                            code({
-                              inline,
-                              className,
-                              children,
-                              ...props
-                            }: MarkdownComponentProps) {
-                              return !inline ? (
-                                <pre>
+                      <div className="mt-4 sm:mt-0 ml-14 sm:ml-4 shrink-0 flex items-center justify-end">
+                        <div
+                          className={`p-1.5 rounded-lg transition-colors ${
+                            isOpen
+                              ? "bg-blue-100 text-blue-700"
+                              : "bg-gray-100 text-gray-400 group-hover:bg-gray-200 group-hover:text-gray-600"
+                          }`}
+                        >
+                          {isOpen ? (
+                            <ChevronUp size={18} />
+                          ) : (
+                            <ChevronDown size={18} />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── EXPANDED CONTENT ── */}
+                    {isOpen && (
+                      <div className="bg-white border-t border-gray-100 px-4 sm:px-6 py-6 ml-0 sm:ml-[60px] animate-in slide-in-from-top-1 fade-in duration-200">
+                        {/* Reporter Details Box */}
+                        <div className="flex flex-wrap items-center gap-4 p-3 mb-6 bg-gray-50 border border-gray-200 rounded-xl text-sm">
+                          <div className="flex items-center gap-2">
+                            <span className="text-gray-500">Email:</span>
+                            <a
+                              href={`mailto:${fb.email}`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                            >
+                              {fb.email}
+                            </a>
+                          </div>
+                          {fb.github_id && (
+                            <>
+                              <div className="w-px h-4 bg-gray-300 hidden sm:block"></div>
+                              <div className="flex items-center gap-2">
+                                <Github size={14} className="text-gray-500" />
+                                <a
+                                  href={`https://github.com/${fb.github_id.replace("@", "")}`}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                                >
+                                  @{fb.github_id.replace("@", "")}
+                                </a>
+                              </div>
+                            </>
+                          )}
+                        </div>
+
+                        {/* Markdown Body styling adjusted for modern look */}
+                        <div
+                          className="text-gray-700 leading-relaxed break-words text-[15px]
+                          [&_p]:mb-4 [&_p:last-child]:mb-0 
+                          [&_h1]:text-xl [&_h1]:font-semibold [&_h1]:text-gray-900 [&_h1]:mb-4 [&_h1]:pb-2 [&_h1]:border-b [&_h1]:border-gray-200 
+                          [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-gray-900 [&_h2]:mb-3 [&_h2]:mt-6 
+                          [&_h3]:text-base [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mb-2 [&_h3]:mt-4 
+                          [&_a]:text-blue-600 [&_a:hover]:underline [&_a]:break-all 
+                          [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul]:space-y-1
+                          [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol]:space-y-1
+                          [&_blockquote]:border-l-4 [&_blockquote]:border-gray-200 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-500 [&_blockquote]:my-4 
+                          [&_code]:bg-gray-100 [&_code]:text-pink-600 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono
+                          [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:p-4 [&_pre]:rounded-xl [&_pre]:overflow-x-auto [&_pre]:my-5 [&_pre]:shadow-sm
+                          [&_pre_code]:bg-transparent [&_pre_code]:text-gray-100 [&_pre_code]:p-0 [&_pre_code]:text-sm"
+                        >
+                          <ReactMarkdown
+                            components={{
+                              code({
+                                inline,
+                                className,
+                                children,
+                                ...props
+                              }: MarkdownComponentProps) {
+                                return !inline ? (
+                                  <pre>
+                                    <code className={className} {...props}>
+                                      {children}
+                                    </code>
+                                  </pre>
+                                ) : (
                                   <code className={className} {...props}>
                                     {children}
                                   </code>
-                                </pre>
-                              ) : (
-                                <code className={className} {...props}>
-                                  {children}
-                                </code>
-                              );
-                            },
-                          }}
-                        >
-                          {fb.feedback}
-                        </ReactMarkdown>
+                                );
+                              },
+                            }}
+                          >
+                            {fb.feedback}
+                          </ReactMarkdown>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
+                    )}
+                  </div>
+                );
+              })}
+            </div>
 
-        {/* Pagination Indicator */}
-        {!isLoading && !errorMsg && filtered.length > 0 && (
-          <div className="mt-2 px-2 text-[#0000ee] text-[13px] font-medium cursor-pointer hover:underline">
-            ...
+            <div className="bg-gray-50/80 border-t border-gray-100 p-3 text-center">
+              <span className="text-sm font-medium text-gray-500">
+                End of results
+              </span>
+            </div>
           </div>
         )}
       </div>

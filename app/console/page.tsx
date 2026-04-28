@@ -49,19 +49,19 @@ export default function SelectConsolePage() {
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
                   <span>Customize metrics and visualizations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
                   <span>Complete transparency in processes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
                   <span>Integrate existing tools/workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
                   <span>No external algorithm dependency</span>
                 </li>
               </ul>
@@ -104,19 +104,19 @@ export default function SelectConsolePage() {
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>No manual configuration required</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>Real-time processing and updates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>AI-powered predictions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>Saves time and reduces manual work</span>
                 </li>
               </ul>

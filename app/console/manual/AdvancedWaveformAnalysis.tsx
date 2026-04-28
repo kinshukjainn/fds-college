@@ -35,7 +35,7 @@ export default function AdvancedElectricalGraphs({
           </p>
         </div>
         <div
-          className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium shadow-sm border"
+          className="flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-medium shadow-sm border"
           style={{
             backgroundColor: engine.fault.faultColor + "1a",
             borderColor: engine.fault.faultColor,
@@ -43,7 +43,7 @@ export default function AdvancedElectricalGraphs({
           }}
         >
           <span
-            className="w-2.5 h-2.5 rounded-full"
+            className="w-2.5 h-2.5 rounded-sm"
             style={{ backgroundColor: engine.fault.faultColor }}
           />
           {engine.fault.faultType}
@@ -91,7 +91,7 @@ export default function AdvancedElectricalGraphs({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Instantaneous Waveforms */}
         <div
-          className="border rounded-md p-4 bg-white shadow-sm h-[400px]"
+          className="border rounded-sm p-4 bg-white shadow-sm h-[400px]"
           style={{
             borderColor: isFaulted ? engine.fault.faultColor + "55" : "#e5e7eb",
           }}
@@ -140,7 +140,7 @@ export default function AdvancedElectricalGraphs({
 
         {/* Polar Phasor Diagram (Per-Unit) */}
         <div
-          className="border rounded-md p-4 bg-white shadow-sm h-[400px]"
+          className="border rounded-sm p-4 bg-white shadow-sm h-[400px]"
           style={{
             borderColor: isFaulted ? engine.fault.faultColor + "55" : "#e5e7eb",
           }}

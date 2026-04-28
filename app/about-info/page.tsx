@@ -114,7 +114,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#faf9f8] text-gray-900 selection:bg-[#cce3f5] selection:text-black font-rubik">
       {/* ── HEADER BAR ── */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white  borde-gray-200   border-b-2 shaodw-md shadow-gray-400">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
           {/* Breadcrumbs */}
           <div className="text-[13px] font-medium text-[#0078D4] flex items-center gap-1.5 mb-4 w-fit">
@@ -142,10 +142,10 @@ export default function AboutPage() {
             </div>
 
             {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[12px] tracking-wide">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[12px] tracking-wide">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#107c10] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#107c10]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107c10] opacity-75"></span>
+                <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107c10]"></span>
               </span>
               Active Development
             </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── MISSION BRIEF ── */}
-      <section className="relative bg-white border-b border-gray-200 overflow-hidden">
+      <section className="relative bg-white border-b border-gray-400 shadow-md shadow-gray-400  overflow-hidden">
         <div
           className="absolute inset-0 opacity-50 pointer-events-none"
           style={{
@@ -215,7 +215,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CAPABILITIES ── */}
-      <section className="bg-[#faf9f8] border-b border-gray-200">
+      <section className="bg-[#faf9f8] border-b border-gray-500  ">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="flex items-center gap-4 mb-10">
             <span className="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium"></span>
@@ -225,7 +225,7 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  rounded-sm">
             {capabilities.map((cap, i) => {
               const Icon = cap.icon;
               return (
@@ -239,7 +239,7 @@ export default function AboutPage() {
                     delay: i * 0.08,
                     ease: "easeOut",
                   }}
-                  className="bg-white p-7 lg:p-8 flex flex-col gap-3 hover:bg-[#fafafa] transition-colors"
+                  className="bg-white rounded-sm p-7 lg:p-8 flex flex-col gap-3 hover:bg-[#fafafa] transition-colors"
                 >
                   <div className="flex items-baseline justify-between mb-2">
                     <span className="text-[11px] font-mono text-gray-400 tracking-wider">
@@ -327,8 +327,8 @@ export default function AboutPage() {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="relative flex h-1.5 w-1.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#107C10] opacity-60"></span>
-                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#107C10]"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-60"></span>
+                            <span className="relative inline-flex rounded-sm h-1.5 w-1.5 bg-[#107C10]"></span>
                           </span>
                           <span className="text-[10px] uppercase tracking-wider text-[#107C10] font-medium">
                             Active

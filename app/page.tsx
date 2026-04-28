@@ -45,10 +45,10 @@ export default function AIIndustrialHome() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Column */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[13px] tracking-wide mb-6">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[13px] tracking-wide mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#107c10] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#107c10]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107c10] opacity-75"></span>
+                <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107c10]"></span>
               </span>
               System Status: Operational
             </div>
@@ -92,7 +92,7 @@ export default function AIIndustrialHome() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/manual"
-                className="group flex items-center gap-3 px-5 py-3.5 bg-white border border-gray-300 hover:border-gray-900 rounded-2xl transition-all"
+                className="group flex items-center gap-3 px-5 py-3.5 bg-white border border-gray-300 hover:border-gray-900 rounded-sm transition-all"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-[11px] uppercase tracking-[0.15em] text-gray-500 group-hover:text-gray-700 font-medium">
@@ -106,7 +106,7 @@ export default function AIIndustrialHome() {
 
               <Link
                 href="/direct"
-                className="group flex items-center gap-3 px-5 py-3.5 bg-[#0078D4] hover:bg-[#106EBE] border border-[#0078D4] hover:border-[#106EBE] rounded-2xl transition-all shadow-sm"
+                className="group flex items-center gap-3 px-5 py-3.5 bg-[#0078D4] hover:bg-[#106EBE] border border-[#0078D4] hover:border-[#106EBE] rounded-sm transition-all shadow-sm"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-[11px] uppercase tracking-[0.15em] text-blue-100 font-medium">
@@ -219,9 +219,9 @@ export default function AIIndustrialHome() {
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-200 bg-gray-50">
               <div className="flex items-center gap-3">
                 <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#D13438]"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FFB900]"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#107C10]"></span>
+                  <span className="h-2.5 w-2.5 rounded-sm bg-[#D13438]"></span>
+                  <span className="h-2.5 w-2.5 rounded-sm bg-[#FFB900]"></span>
+                  <span className="h-2.5 w-2.5 rounded-sm bg-[#107C10]"></span>
                 </div>
                 <span className="text-[12px] font-mono text-gray-600">
                   channel_03 · grid.bus.07 · 50.000Hz
@@ -229,8 +229,8 @@ export default function AIIndustrialHome() {
               </div>
               <div className="flex items-center gap-2 text-[12px] font-mono text-[#107C10]">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#107C10] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#107C10]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-75"></span>
+                  <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107C10]"></span>
                 </span>
                 LIVE
               </div>

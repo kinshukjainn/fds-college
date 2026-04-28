@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  Github,
+  GitBranch,
+  FolderTree,
+  Search,
+  Filter,
+  Clock,
+  GitCommitHorizontal,
+  Code2,
+} from "lucide-react";
 
 // ============================================================================
 // Types
@@ -207,100 +218,84 @@ export default function ChangelogTracker() {
       : "N/A";
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 text-[14px] sm:text-[15px] p-4 md:p-6 lg:p-8 selection:bg-blue-100">
-      <div className="max-w-7xl mx-auto">
-        {/* ── TOP HEADER (Breadcrumbs & Links) ── */}
-        <div className="mb-2">
-          <h1 className="text-[20px] sm:text-[24px] font-medium m-0 p-0 text-gray-900 break-words">
-            <Link href="#" className="hover:underline text-gray-900">
-              Github
-            </Link>{" "}
-            <span className="text-gray-400 mx-1">/</span>{" "}
-            <Link href="#" className="hover:underline text-gray-900">
-              {GITHUB_CONFIG.repository}
-            </Link>{" "}
-            <span className="text-gray-400 mx-1">/</span> summary
-          </h1>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2 text-[14px] sm:text-[15px] mb-6">
-          <span className="text-gray-600">summary |</span>
-          <Link
-            href="/git-track/tree"
-            className="inline-flex items-center text-white font-medium px-2 py-1 bg-green-500 hover:bg-green-600 transition-colors no-underline"
-          >
-            View repo tree &rarr;
-          </Link>
-        </div>
-
-        {/* ── META INFO TABLE ── */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg py-4 px-4 sm:px-6 mb-6">
-          <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-y-3 sm:gap-x-4 text-[14px]">
-            <div className="text-gray-900 font-medium">Description</div>
-            <div className="text-gray-700">
-              {GITHUB_CONFIG.repository} git repo
+    <div className="min-h-screen bg-gray-50/50 text-gray-900  p-4 sm:p-8 selection:bg-blue-200">
+      <div className="max-w-5xl mx-auto">
+        {/* ── HEADER ── */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-white border border-gray-200 shadow-sm rounded-xl">
+              <Github className="w-6 h-6 text-gray-700" />
             </div>
-
-            <div className="text-gray-900 font-medium">Last change</div>
-            <div className="text-gray-700">{lastChangeDate}</div>
-
-            <div className="text-gray-900 font-medium">URL</div>
             <div>
-              <a
-                href={`https://github.com/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repository}`}
-                className="text-blue-600 hover:text-blue-800 hover:underline break-all"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                https://github.com/{GITHUB_CONFIG.username}/
-                {GITHUB_CONFIG.repository}.git
-              </a>
+              <h1 className="text-xl font-semibold flex items-center gap-1.5 text-gray-900">
+                <span className="text-blue-600 hover:underline cursor-pointer">
+                  {GITHUB_CONFIG.username}
+                </span>
+                <span className="text-gray-400 font-light">/</span>
+                <span className="font-bold cursor-pointer hover:text-blue-600 transition-colors">
+                  {GITHUB_CONFIG.repository}
+                </span>
+              </h1>
+              <div className="flex items-center gap-1.5 text-sm text-gray-500 mt-0.5">
+                <GitBranch className="w-3.5 h-3.5" />
+                <span className="font-medium bg-gray-100 px-1.5 py-0.5 rounded-md text-gray-700">
+                  {GITHUB_CONFIG.branch}
+                </span>
+                <span className="text-gray-300 mx-1">•</span>
+                <span>Updated: {lastChangeDate}</span> {/* <-- Added here */}
+                <span>Commits History</span>
+              </div>
             </div>
+          </div>
 
-            <div className="text-gray-900 font-medium mt-2 sm:mt-0">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-xl transition-all border ${
+                showFilters
+                  ? "bg-blue-50 border-blue-200 text-blue-700"
+                  : "bg-white border-gray-200 text-gray-600 shadow-sm hover:bg-gray-50"
+              }`}
+            >
+              <Filter size={16} />
               Filters
-            </div>
-            <div className="mt-1 sm:mt-0">
-              <button
-                type="button"
-                onClick={() => setShowFilters(!showFilters)}
-                className="text-blue-700 hover:text-blue-800 underline font-medium italic transition-colors"
-              >
-                {showFilters
-                  ? "hide search & filters"
-                  : "show search & filters"}
+            </button>
+            <Link href="/git-track/tree">
+              <button className="flex items-center gap-1.5 text-sm font-medium text-white bg-gray-900 border border-gray-800 shadow-sm px-4 py-2 rounded-xl hover:bg-gray-800 transition-all">
+                <FolderTree size={16} />
+                View Files
               </button>
-            </div>
+            </Link>
           </div>
         </div>
 
         {/* ── FILTERS BLOCK ── */}
         {showFilters && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-5 mb-8">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-sm p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
               <label className="flex flex-col gap-1.5">
-                <span className="text-gray-900 font-medium text-sm">
-                  Search:
+                <span className="text-gray-700 font-medium text-sm flex items-center gap-1">
+                  <Search size={14} className="text-gray-400" /> Search
                 </span>
                 <input
                   type="text"
-                  placeholder="author, date, time, msg"
+                  placeholder="author, date, hash, msg..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                 />
               </label>
 
               <label className="flex flex-col gap-1.5">
-                <span className="text-gray-900 font-medium text-sm">
-                  Author:
+                <span className="text-gray-700 font-medium text-sm">
+                  Author
                 </span>
                 <select
                   value={authorFilter}
                   onChange={(e) => setAuthorFilter(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                 >
-                  <option value="all">all</option>
+                  <option value="all">All Authors</option>
                   {uniqueAuthors.map((a) => (
                     <option key={a} value={a}>
                       {a}
@@ -310,11 +305,11 @@ export default function ChangelogTracker() {
               </label>
 
               <label className="flex flex-col gap-1.5">
-                <span className="text-gray-900 font-medium text-sm">Type:</span>
+                <span className="text-gray-700 font-medium text-sm">Type</span>
                 <select
                   value={typeFilter}
                   onChange={(e) => setTypeFilter(e.target.value)}
-                  className="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                 >
                   {COMMIT_TYPES.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -331,32 +326,31 @@ export default function ChangelogTracker() {
                   setAuthorFilter("all");
                   setTypeFilter("all");
                 }}
-                className="w-full sm:w-auto bg-blue-800 hover:bg-blue-900 text-white px-6 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800"
+                className="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-xl font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 text-sm border border-gray-200"
               >
-                Clear
+                Clear Filters
               </button>
             </div>
           </div>
         )}
 
-        {/* ── SECTION HEADER ── */}
-        <div className="py-2 text-2xl sm:text-3xl font-medium mb-4 text-gray-900 border-b-2 border-gray-100">
-          Commits List
-        </div>
-
         {/* ── ERROR & LOADING STATES ── */}
         {loading && (
-          <div className="p-4 sm:p-6 text-gray-600 bg-gray-50 border border-gray-200 rounded-lg animate-pulse">
-            Fetching repository history (page {fetchingProgress})...
+          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-sm shadow-sm">
+            <div className="w-6 h-6 border-2 border-gray-900 border-t-transparent rounded-sm animate-spin" />
+            Fetching repository history (Page {fetchingProgress})...
           </div>
         )}
 
         {error && (
-          <div className="p-4 sm:p-6 text-red-700 font-medium bg-red-50 border border-red-200 rounded-lg mb-6 flex flex-wrap items-center gap-4 justify-between">
-            <span>Error: {error}</span>
+          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-sm mb-6 flex flex-wrap items-center gap-4 justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-sm bg-red-500" />
+              <span>{error}</span>
+            </div>
             <button
               onClick={fetchCommits}
-              className="text-red-700 underline hover:text-red-800 transition-colors font-medium"
+              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-lg transition-colors font-medium"
             >
               Retry
             </button>
@@ -364,85 +358,100 @@ export default function ChangelogTracker() {
         )}
 
         {!loading && !error && displayCommits.length === 0 && (
-          <div className="p-6 text-gray-500 bg-gray-50 border border-gray-200 rounded-lg text-center">
-            No commits found matching the current criteria.
+          <div className="p-12 text-center text-sm text-gray-500 bg-white border border-gray-200 rounded-sm shadow-sm">
+            No commits found matching your search criteria.
           </div>
         )}
 
-        {/* ── LIST ── */}
+        {/* ── COMMITS TIMELINE / LIST ── */}
         {!loading && !error && displayCommits.length > 0 && (
-          <div className="w-full flex flex-col border border-gray-200 rounded-lg overflow-hidden">
-            {displayCommits.map((commit, index) => {
-              const title = getCommitTitle(commit.commit.message);
-              // Classic alternating row colors matched to original intent but cleaner
-              const rowClass = index % 2 === 0 ? "bg-white" : "bg-gray-50";
+          <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
+            <div className="divide-y divide-gray-100">
+              {displayCommits.map((commit, index) => {
+                const title = getCommitTitle(commit.commit.message);
+                const isLatest = index === 0;
 
-              return (
-                <div
-                  key={commit.sha}
-                  className={`${rowClass} flex flex-col lg:flex-row lg:items-center py-3 sm:py-4 px-4 sm:px-6 hover:bg-blue-50/50 transition-colors border-b last:border-b-0 border-gray-200 gap-3 lg:gap-6`}
-                >
-                  {/* Time & Author */}
-                  <div className="flex flex-row items-center gap-3 lg:w-[280px] shrink-0">
-                    <span className="text-gray-500 text-[13px] w-[90px] shrink-0">
-                      {timeAgo(commit.commit.author.date)}
-                    </span>
-                    <span className="truncate text-red-600 font-medium text-[14px]">
-                      @{commit.commit.author.name}
-                    </span>
+                return (
+                  <div
+                    key={commit.sha}
+                    className="group flex flex-col sm:flex-row sm:items-start justify-between p-4 hover:bg-gray-50 transition-colors gap-4"
+                  >
+                    <div className="flex gap-3 items-start min-w-0">
+                      {/* Optional Avatar, fallback to default icon if missing */}
+                      <div className="shrink-0 mt-0.5">
+                        {commit.author?.avatar_url ? (
+                          <Image
+                            src={commit.author.avatar_url}
+                            alt={commit.commit.author.name}
+                            width={32}
+                            height={32}
+                            className="rounded-sm border border-gray-200"
+                          />
+                        ) : (
+                          <div className="w-8 h-8 rounded-sm bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500">
+                            <GitCommitHorizontal size={16} />
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold text-gray-900 text-[15px] truncate max-w-full">
+                            {title}
+                          </span>
+                          {isLatest && (
+                            <span className="bg-blue-50 text-blue-600 border border-blue-200 text-[11px] font-semibold px-2 py-0.5 rounded-sm leading-tight shrink-0">
+                              Latest
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center flex-wrap gap-x-3 gap-y-1 mt-1 text-[13px] text-gray-500">
+                          <span className="font-medium text-gray-700">
+                            {commit.commit.author.name}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock size={12} />
+                            {timeAgo(commit.commit.author.date)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Action Buttons / Links */}
+                    <div className="flex flex-wrap items-center gap-2 sm:shrink-0 sm:mt-0 mt-2 ml-11 sm:ml-0">
+                      <a
+                        href={commit.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs font-mono text-gray-500 bg-gray-50 border border-gray-200 hover:border-gray-300 hover:text-gray-900 px-2.5 py-1.5 rounded-lg transition-all"
+                        title="View Commit"
+                      >
+                        <GitCommitHorizontal size={14} />
+                        {commit.sha.substring(0, 7)}
+                      </a>
+
+                      <a
+                        href={commit.html_url.replace("/commit/", "/tree/")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 p-1.5 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all"
+                        title="Browse Files at this point"
+                      >
+                        <Code2 size={16} />
+                      </a>
+                    </div>
                   </div>
+                );
+              })}
+            </div>
 
-                  {/* Message & Tag */}
-                  <div className="flex-1 min-w-0 font-medium text-gray-900 flex flex-wrap items-center gap-2 text-[14px] sm:text-[15px]">
-                    <span className="break-words">{title}</span>
-                    {index === 0 && (
-                      <span className="bg-green-100 border border-green-500 text-green-800 text-[11px] font-medium px-2 py-0.5 rounded-md leading-tight shrink-0">
-                        master
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex flex-wrap items-center gap-2 lg:justify-end shrink-0 text-[13px] text-blue-600 mt-1 lg:mt-0 font-medium">
-                    <a
-                      href={commit.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-800 hover:underline transition-colors"
-                    >
-                      commit
-                    </a>
-                    <span className="text-gray-300">|</span>
-                    <a
-                      href={commit.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-800 hover:underline transition-colors"
-                    >
-                      commitdiff
-                    </a>
-                    <span className="text-gray-300">|</span>
-                    <a
-                      href={commit.html_url.replace("/commit/", "/tree/")}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-800 hover:underline transition-colors"
-                    >
-                      tree
-                    </a>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Pagination Indicator */}
-        {!loading && !error && displayCommits.length > 0 && (
-          <div className="mt-4 px-2 text-center">
-            <button className="text-blue-600 hover:text-blue-800 text-[14px] font-medium hover:underline transition-colors focus:outline-none">
-              Load more...
-            </button>
+            {/* Pagination / Load More Footer */}
+            <div className="bg-gray-50/80 border-t border-gray-100 p-3 text-center">
+              <button className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none">
+                Showing {displayCommits.length} commits
+              </button>
+            </div>
           </div>
         )}
       </div>
