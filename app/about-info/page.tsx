@@ -94,7 +94,7 @@ const teamMembers: Member[] = [
     icon: FileBarChart,
   },
   {
-    name: "Kinshuk Jain",
+    name: "robert kosha",
     role: "Technical Lead",
     description:
       "Direct technical inquiries here — API guidelines, architecture, and code review.",
