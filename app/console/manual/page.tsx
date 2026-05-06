@@ -164,7 +164,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="sysVoltageLevel"
                       value={formData.sysVoltageLevel}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -178,7 +178,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="nominalFreq"
                       value={formData.nominalFreq}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function ElectricalDiagnosticConsole() {
                         name={`voltage${phase}`}
                         value={formData[`voltage${phase}` as keyof FormData]}
                         onChange={handleChange}
-                        className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                        className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                       />
                     </div>
                   ))}
@@ -229,7 +229,7 @@ export default function ElectricalDiagnosticConsole() {
                         name={`current${phase}`}
                         value={formData[`current${phase}` as keyof FormData]}
                         onChange={handleChange}
-                        className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                        className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                       />
                     </div>
                   ))}
@@ -254,7 +254,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="seqPositive"
                       value={formData.seqPositive}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -268,7 +268,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="seqNegative"
                       value={formData.seqNegative}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -282,7 +282,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="seqZero"
                       value={formData.seqZero}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="activePower"
                       value={formData.activePower}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -319,7 +319,7 @@ export default function ElectricalDiagnosticConsole() {
                       name="reactivePower"
                       value={formData.reactivePower}
                       onChange={handleChange}
-                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-sm text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
+                      className="w-full px-2 py-1.5 border border-[#c8c8c8] rounded-xl text-sm focus:ring-1 focus:ring-[#0078d4] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -328,12 +328,12 @@ export default function ElectricalDiagnosticConsole() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#0078d4] hover:bg-[#106ebe] text-white font-medium py-2.5 px-4 rounded transition-colors flex items-center cursor-pointer justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed mt-2 shadow-sm"
+                className="w-full bg-slate-900 text-white font-medium py-2.5 px-4 rounded-full transition-colors flex items-center cursor-pointer justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed mt-2 shadow-sm"
               >
                 {loading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
-                  <RiGeminiFill className="w-5 h-5" />
+                  <RiGeminiFill className="w-7 h-7" />
                 )}
                 {loading ? "Computing... Please wait" : "Run Diagnostic"}
               </button>
@@ -394,7 +394,7 @@ export default function ElectricalDiagnosticConsole() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute w-72 h-72 bg-[#0078d4] rounded-sm blur-[80px] -z-10 pointer-events-none"
+                  className="absolute w-72 h-72 bg-[#0078d4] rounded-xl blur-[80px] -z-10 pointer-events-none"
                 />
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -402,7 +402,7 @@ export default function ElectricalDiagnosticConsole() {
                   transition={{ duration: 0.6 }}
                   className="flex flex-col items-center space-y-6 z-10"
                 >
-                  <div className="relative flex items-center justify-center p-4 bg-[#f0f6ff] rounded-sm border border-[#c7dffb]">
+                  <div className="relative flex items-center justify-center p-4 bg-[#f0f6ff] rounded-xl border border-[#c7dffb]">
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{

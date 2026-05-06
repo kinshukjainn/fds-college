@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 body {
-  font-family: var(--font-rubik), sans-serif;
+  font-family: var(--font-public-sans), sans-serif;
   background-color: white; /* Light background color */
 }
 

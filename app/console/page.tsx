@@ -28,10 +28,10 @@ export default function SelectConsolePage() {
         {/* ── CONSOLE OPTIONS ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* Manual Console Card */}
-          <div className="flex flex-col bg-white border border-gray-200 rounded-sm shadow-sm hover:shadow-md transition-shadow p-6 relative">
+          <div className="flex flex-col bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-md transition-shadow p-6 relative">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-[#f3f2f1] text-gray-700 flex items-center justify-center rounded-sm shrink-0">
-                <Settings size={20} />
+              <div className="w-10 h-10 bg-blue-800 text-gray-100 flex items-center justify-center rounded-full  shrink-0">
+                <Settings size={22} />
               </div>
               <h2 className="text-[18px] font-medium text-gray-900">
                 Manual Console
@@ -49,19 +49,19 @@ export default function SelectConsolePage() {
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-gray-400 mt-1.5 shrink-0" />
                   <span>Customize metrics and visualizations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-gray-400 mt-1.5 shrink-0" />
                   <span>Complete transparency in processes</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-gray-400 mt-1.5 shrink-0" />
                   <span>Integrate existing tools/workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-gray-400 mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-gray-400 mt-1.5 shrink-0" />
                   <span>No external algorithm dependency</span>
                 </li>
               </ul>
@@ -70,7 +70,7 @@ export default function SelectConsolePage() {
             <div className="mt-auto pt-4 border-t border-gray-50">
               <Link
                 href="/console/manual"
-                className="block w-full text-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 font-medium py-2 px-4 rounded-sm text-[13px] transition-colors"
+                className="block w-full text-center bg-slate-900 text-white font-semibold  py-2 px-4 rounded-full text-[15px] transition-colors"
               >
                 Manual Setup
               </Link>
@@ -78,17 +78,17 @@ export default function SelectConsolePage() {
           </div>
 
           {/* Automated Console Card */}
-          <div className="flex flex-col bg-white border border-[#0078D4] border-t-4 rounded-sm shadow-sm hover:shadow-md transition-shadow p-6 relative">
+          <div className="flex flex-col bg-white border border-[#0078D4] border-t-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow p-6 relative">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#0078D4] text-white flex items-center justify-center rounded-sm shrink-0">
+                <div className="w-10 h-10 bg-[#0078D4] text-white flex items-center justify-center rounded-full shrink-0">
                   <Sparkles size={20} />
                 </div>
                 <h2 className="text-[18px] font-medium text-gray-900">
                   Automated Console
                 </h2>
               </div>
-              <span className="bg-[#f3f9fd] text-[#0078D4] border border-[#0078D4] px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide rounded-sm hidden sm:block">
+              <span className="bg-[#f3f9fd] text-[#0078D4] border border-[#0078D4] px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide rounded-full hidden sm:block">
                 Recommended
               </span>
             </div>
@@ -104,19 +104,19 @@ export default function SelectConsolePage() {
               </h3>
               <ul className="space-y-2.5 text-[13px] text-gray-700 mb-8">
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>No manual configuration required</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>Real-time processing and updates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>AI-powered predictions</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-[#0078D4] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-xl bg-[#0078D4] mt-1.5 shrink-0" />
                   <span>Saves time and reduces manual work</span>
                 </li>
               </ul>
@@ -125,7 +125,7 @@ export default function SelectConsolePage() {
             <div className="mt-auto pt-4 border-t border-gray-50">
               <Link
                 href="/console/direct"
-                className="block w-full text-center bg-[#0078D4] hover:bg-[#005a9e] text-white font-medium py-2 px-4 rounded-sm text-[13px] transition-colors"
+                className="block w-full text-center bg-slate-900 text-white font-semibold  py-2 px-4 rounded-full text-[15px] transition-colors"
               >
                 Automated Setup
               </Link>
@@ -134,7 +134,7 @@ export default function SelectConsolePage() {
         </div>
 
         {/* ── COMPARISON TABLE ── */}
-        <section className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
+        <section className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 bg-[#fafafa]">
             <h2 className="text-[15px] font-medium text-gray-900">
               Quick Comparison

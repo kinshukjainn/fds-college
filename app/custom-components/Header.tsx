@@ -34,12 +34,11 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-1 text-[16px] sm:text-lg font-medium text-gray-900 hover:text-[#0078D4] transition-colors"
+            className="flex shrink-0 items-center gap-1 text-[16px] sm:text-lg font-bold text-gray-900 hover:text-[#0078D4] transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             M-<span className="text-gray-900">Scada</span>_
           </Link>
-
           {/* Desktop Navigation (Azure Top-Nav Style) */}
           <nav className="hidden md:flex md:items-center h-full ml-8">
             {NAV_LINKS.map((link) => {
@@ -49,7 +48,7 @@ export default function Header() {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`flex items-center gap-1.5 h-full px-4 text-[13px] font-medium transition-colors border-b-2 ${
+                  className={`flex items-center gap-1.5 h-full px-4 text-[15px] font-medium transition-colors border-b-2 ${
                     isActive
                       ? "border-[#0078D4] text-[#0078D4] bg-[#f3f9fd]"
                       : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
@@ -61,16 +60,14 @@ export default function Header() {
               );
             })}
           </nav>
-
           <div className="flex-1" />
-
           {/* Desktop Right Actions (External Links) */}
           <div className="hidden md:flex md:items-center md:gap-3">
             <a
               href="https://github.com/kinshukjainn/fds-college"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[13px] font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 px-4 py-1.5 rounded-sm transition-colors"
+              className="flex items-center gap-2 text-[13px] font-semibold text-gray-100 bg-black border border-gray-300 hover:bg-gray-50 px-4 py-1.5 rounded-full transition-colors"
             >
               <Github className="h-4 w-4" />
               <span>GitHub</span>
@@ -79,17 +76,16 @@ export default function Header() {
               href="https://fdb.cloudkinshuk.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[13px] font-medium text-white bg-[#0078D4] border border-transparent hover:bg-[#005a9e] px-4 py-1.5 rounded-sm transition-colors"
+              className="flex items-center gap-2 text-[13px] font-medium text-white bg-[#0078D4] border border-transparent hover:bg-[#005a9e] px-4 py-1.5 rounded-full transition-colors"
             >
               <MessageSquare className="h-4 w-4" />
               <span>Feedback</span>
             </a>
           </div>
-
           {/* Mobile Menu Toggle Button */}
           <button
             type="button"
-            className="flex items-center justify-center p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-sm md:hidden transition-colors"
+            className="flex items-center justify-center p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl md:hidden transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -137,7 +133,7 @@ export default function Header() {
               href="https://github.com/kinshukjainn/mscada"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-sm px-4 py-2.5 text-[14px] font-medium transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl px-4 py-2.5 text-[14px] font-medium transition-colors"
             >
               <Github className="h-4 w-4" />
               GitHub
@@ -146,7 +142,7 @@ export default function Header() {
               href="https://clkfeedbacks.cloudkinshuk.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-[#0078D4] hover:bg-[#005a9e] text-white rounded-sm px-4 py-2.5 text-[14px] font-medium transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-[#0078D4] hover:bg-[#005a9e] text-white rounded-xl px-4 py-2.5 text-[14px] font-medium transition-colors"
             >
               <MessageSquare className="h-4 w-4" />
               Feedback

@@ -94,7 +94,7 @@ const teamMembers: Member[] = [
     icon: FileBarChart,
   },
   {
-    name: "robert kosha",
+    name: "Kinshuk Jain",
     role: "Technical Lead",
     description:
       "Direct technical inquiries here — API guidelines, architecture, and code review.",
@@ -127,7 +127,7 @@ export default function AboutPage() {
 
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#0078D4] rounded-sm flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 bg-[#0078D4] rounded-xl flex items-center justify-center shrink-0">
                 <Info size={20} className="text-white" />
               </div>
               <div>
@@ -142,10 +142,10 @@ export default function AboutPage() {
             </div>
 
             {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[12px] tracking-wide">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[12px] tracking-wide">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107c10] opacity-75"></span>
-                <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107c10]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-[#107c10] opacity-75"></span>
+                <span className="relative inline-flex rounded-xl h-2 w-2 bg-[#107c10]"></span>
               </span>
               Active Development
             </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  rounded-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  rounded-xl">
             {capabilities.map((cap, i) => {
               const Icon = cap.icon;
               return (
@@ -239,13 +239,13 @@ export default function AboutPage() {
                     delay: i * 0.08,
                     ease: "easeOut",
                   }}
-                  className="bg-white rounded-sm p-7 lg:p-8 flex flex-col gap-3 hover:bg-[#fafafa] transition-colors"
+                  className="bg-white rounded-xl p-7 lg:p-8 flex flex-col gap-3 hover:bg-[#fafafa] transition-colors"
                 >
                   <div className="flex items-baseline justify-between mb-2">
                     <span className="text-[11px] font-mono text-gray-400 tracking-wider">
                       [{cap.id}]
                     </span>
-                    <span className="text-[11px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-sm">
+                    <span className="text-[11px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-xl">
                       {cap.spec}
                     </span>
                   </div>
@@ -309,11 +309,11 @@ export default function AboutPage() {
                     ease: "easeOut",
                   }}
                   whileHover={{ y: -2 }}
-                  className="group bg-white border border-gray-200 hover:border-[#0078D4] rounded-sm p-6 transition-colors duration-200"
+                  className="group bg-white border border-gray-200 hover:border-[#0078D4] rounded-xl p-6 transition-colors duration-200"
                 >
                   <div className="flex items-start gap-4 mb-4">
                     {/* Avatar */}
-                    <div className="h-12 w-12 bg-[#eaf3fb] border border-[#0078D4] rounded-sm flex items-center justify-center shrink-0">
+                    <div className="h-12 w-12 bg-[#eaf3fb] border border-[#0078D4] rounded-xl flex items-center justify-center shrink-0">
                       <span className="text-[14px] font-medium text-[#0078D4]">
                         {initialsOf(member.name)}
                       </span>
@@ -327,8 +327,8 @@ export default function AboutPage() {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="relative flex h-1.5 w-1.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-60"></span>
-                            <span className="relative inline-flex rounded-sm h-1.5 w-1.5 bg-[#107C10]"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-[#107C10] opacity-60"></span>
+                            <span className="relative inline-flex rounded-xl h-1.5 w-1.5 bg-[#107C10]"></span>
                           </span>
                           <span className="text-[10px] uppercase tracking-wider text-[#107C10] font-medium">
                             Active

@@ -234,7 +234,7 @@ export default function RepositoryViewer() {
               </h1>
               <div className="flex items-center gap-1.5 text-sm text-gray-500 mt-0.5">
                 <GitBranch className="w-3.5 h-3.5" />
-                <span className="font-medium bg-gray-100 px-1.5 py-0.5 rounded-md text-gray-700">
+                <span className="font-medium bg-gray-100 px-1.5 py-0.5 rounded-xl text-gray-700">
                   {GITHUB_CONFIG.branch}
                 </span>
               </div>
@@ -251,14 +251,14 @@ export default function RepositoryViewer() {
 
         {/* ── ERROR DISPLAY ── */}
         {error && (
-          <div className="p-4 mb-6 text-sm text-red-600 bg-red-50 border border-red-100 rounded-sm flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-sm bg-red-500" />
+          <div className="p-4 mb-6 text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-xl bg-red-500" />
             {error}
           </div>
         )}
 
         {/* ── MAIN EXPLORER CARD ── */}
-        <div className="bg-white border border-gray-200 shadow-sm rounded-sm overflow-hidden">
+        <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
           {/* Breadcrumb Header inside the card */}
           <div className="bg-gray-50/80 border-b border-gray-200 px-4 py-3.5 flex items-center gap-1.5 text-sm font-medium overflow-x-auto">
             <span
@@ -296,7 +296,7 @@ export default function RepositoryViewer() {
             <div className="flex flex-col">
               {isLoadingTree ? (
                 <div className="p-8 text-center text-sm text-gray-500 flex flex-col items-center gap-3">
-                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-sm animate-spin" />
+                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-xl animate-spin" />
                   Fetching repository...
                 </div>
               ) : (
@@ -376,7 +376,7 @@ export default function RepositoryViewer() {
             <div className="flex flex-col bg-white">
               {isFileLoading ? (
                 <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3">
-                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-sm animate-spin" />
+                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-xl animate-spin" />
                   Loading file content...
                 </div>
               ) : (

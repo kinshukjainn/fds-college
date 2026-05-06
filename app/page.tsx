@@ -45,10 +45,10 @@ export default function AIIndustrialHome() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Column */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-sm bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[13px] tracking-wide mb-6">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-[#f3fcf3] border border-[#cce8cc] text-[#107c10] font-medium text-[13px] tracking-wide mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107c10] opacity-75"></span>
-                <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107c10]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-[#107c10] opacity-75"></span>
+                <span className="relative inline-flex rounded-xl h-2 w-2 bg-[#107c10]"></span>
               </span>
               System Status: Operational
             </div>
@@ -63,7 +63,7 @@ export default function AIIndustrialHome() {
                     animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                     exit={{ opacity: 0, filter: "blur(8px)", y: -10 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="text-[#0078D4] absolute left-0 inline-block whitespace-nowrap"
+                    className="text-[#0078D4] font-bold  absolute left-0 inline-block whitespace-nowrap"
                   >
                     {words[index]}
                   </motion.span>
@@ -72,13 +72,13 @@ export default function AIIndustrialHome() {
               <span>version of SCADA</span>
             </h1>
 
-            <p className="text-[15px] sm:text-[16px] text-gray-600 leading-relaxed max-w-xl mb-8">
+            <p className="text-[17px] sm:text-[17px] text-black leading-relaxed max-w-xl mb-8">
               MScada is a next-generation, also known as{" "}
-              <span className="text-gray-800 font-medium px-1.5 py-0.5 bg-gray-100 border border-gray-200 rounded-sm text-[14px]">
+              <span className="text-black font-medium px-1.5 py-0.5 bg-gray-100 border border-gray-200 rounded-xl text-[14px]">
                 Modern Scada
               </span>
               , an{" "}
-              <span className="font-medium text-gray-800 border-b border-gray-300">
+              <span className="font-medium text-black  border-b border-gray-300">
                 open source
               </span>{" "}
               monitoring layer that elevates traditional SCADA systems with
@@ -91,8 +91,8 @@ export default function AIIndustrialHome() {
             {/* ── CONSOLE SELECTOR CTAs ── */}
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                href="/manual"
-                className="group flex items-center gap-3 px-5 py-3.5 bg-white border border-gray-300 hover:border-gray-900 rounded-sm transition-all"
+                href="/console/manual"
+                className="group flex items-center gap-3 px-5 py-3.5 bg-white border border-gray-300 hover:border-gray-900 rounded-xl transition-all"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-[11px] uppercase tracking-[0.15em] text-gray-500 group-hover:text-gray-700 font-medium">
@@ -105,8 +105,8 @@ export default function AIIndustrialHome() {
               </Link>
 
               <Link
-                href="/direct"
-                className="group flex items-center gap-3 px-5 py-3.5 bg-[#0078D4] hover:bg-[#106EBE] border border-[#0078D4] hover:border-[#106EBE] rounded-sm transition-all shadow-sm"
+                href="/console/direct"
+                className="group flex items-center gap-3 px-5 py-3.5 bg-[#0078D4] hover:bg-[#106EBE] border border-[#0078D4] hover:border-[#106EBE] rounded-xl transition-all shadow-sm"
               >
                 <div className="flex flex-col items-start">
                   <span className="text-[11px] uppercase tracking-[0.15em] text-blue-100 font-medium">
@@ -122,7 +122,7 @@ export default function AIIndustrialHome() {
 
           {/* Right Column: Image */}
           <div className="w-full flex justify-center items-center lg:justify-end">
-            <div className="relative w-full max-w-[600px] bg-white border border-gray-200 shadow-sm rounded-sm p-2">
+            <div className="relative w-full max-w-[600px] bg-white border border-gray-200 shadow-sm rounded-xl p-2">
               <div className="aspect-[4/3] relative w-full overflow-hidden bg-[#f3f2f1]">
                 <Image
                   src="/housepower.png"
@@ -214,14 +214,14 @@ export default function AIIndustrialHome() {
           </div>
 
           {/* ── LIVE WAVEFORM PANEL (HMI-styled) ── */}
-          <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden mb-16">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden mb-16">
             {/* Panel header */}
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-200 bg-gray-50">
               <div className="flex items-center gap-3">
                 <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-sm bg-[#D13438]"></span>
-                  <span className="h-2.5 w-2.5 rounded-sm bg-[#FFB900]"></span>
-                  <span className="h-2.5 w-2.5 rounded-sm bg-[#107C10]"></span>
+                  <span className="h-2.5 w-2.5 rounded-xl bg-[#D13438]"></span>
+                  <span className="h-2.5 w-2.5 rounded-xl bg-[#FFB900]"></span>
+                  <span className="h-2.5 w-2.5 rounded-xl bg-[#107C10]"></span>
                 </div>
                 <span className="text-[12px] font-mono text-gray-600">
                   channel_03 · grid.bus.07 · 50.000Hz
@@ -229,8 +229,8 @@ export default function AIIndustrialHome() {
               </div>
               <div className="flex items-center gap-2 text-[12px] font-mono text-[#107C10]">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-75"></span>
-                  <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107C10]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-[#107C10] opacity-75"></span>
+                  <span className="relative inline-flex rounded-xl h-2 w-2 bg-[#107C10]"></span>
                 </span>
                 LIVE
               </div>
@@ -453,7 +453,7 @@ export default function AIIndustrialHome() {
                   <span className="text-[11px] font-mono text-gray-400 tracking-wider">
                     [{pillar.num}]
                   </span>
-                  <span className="text-[11px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-sm">
+                  <span className="text-[11px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-xl">
                     {pillar.spec}
                   </span>
                 </div>
@@ -478,7 +478,7 @@ export default function AIIndustrialHome() {
               </span>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-sm p-6 lg:p-8">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 lg:p-8">
               <div className="space-y-5">
                 {[
                   {
@@ -528,7 +528,7 @@ export default function AIIndustrialHome() {
                       </div>
                     </div>
                     <div className="col-span-9 md:col-span-7">
-                      <div className="relative h-7 bg-gray-100 rounded-sm overflow-hidden">
+                      <div className="relative h-7 bg-gray-100 rounded-xl overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: row.width }}
@@ -583,7 +583,7 @@ export default function AIIndustrialHome() {
                 Console Preview
               </h2>
             </div>
-            <div className="bg-white border border-gray-200 p-2 shadow-sm rounded-sm">
+            <div className="bg-white border border-gray-200 p-2 shadow-sm rounded-xl">
               <div className="aspect-[16/9] relative w-full bg-[#f3f2f1]">
                 <Image
                   src="/nwcon.png"
@@ -607,7 +607,7 @@ export default function AIIndustrialHome() {
                 rail networks, and heavy power distribution.
               </p>
             </div>
-            <div className="bg-white border border-gray-200 p-2 shadow-sm rounded-sm">
+            <div className="bg-white border border-gray-200 p-2 shadow-sm rounded-xl">
               <div className="aspect-[16/9] relative w-full bg-[#f3f2f1]">
                 <Image
                   src="/flowdia.png"

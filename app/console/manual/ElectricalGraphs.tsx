@@ -29,13 +29,13 @@ export default function AdvancedWaveformAnalysis({
 
   return (
     <div
-      className="w-full space-y-6 bg-slate-50 p-6 rounded-sm border shadow-inner"
+      className="w-full space-y-6 bg-slate-50 p-6 rounded-xl border shadow-inner"
       style={{ borderColor: isFaulted ? fault.faultColor + "55" : "#e2e8f0" }}
     >
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-6">
         <div className="flex items-center gap-4">
           <div
-            className="p-3 rounded-sm text-white shadow-md"
+            className="p-3 rounded-xl text-white shadow-md"
             style={{
               backgroundColor: isFaulted ? fault.faultColor : "#0f172a",
             }}
@@ -54,7 +54,7 @@ export default function AdvancedWaveformAnalysis({
         </div>
 
         <div className="flex gap-3 flex-wrap">
-          <div className="px-4 py-2 bg-white border border-slate-200 rounded-sm shadow-sm">
+          <div className="px-4 py-2 bg-white border border-slate-200 rounded-xl shadow-sm">
             <span className="text-xs text-slate-400 block uppercase font-medium">
               System PF
             </span>
@@ -66,7 +66,7 @@ export default function AdvancedWaveformAnalysis({
           </div>
 
           <div
-            className="px-4 py-2 rounded-sm shadow-sm border flex items-center gap-2"
+            className="px-4 py-2 rounded-xl shadow-sm border flex items-center gap-2"
             style={{
               backgroundColor: fault.faultColor + "15",
               borderColor: fault.faultColor + "66",
@@ -97,7 +97,7 @@ export default function AdvancedWaveformAnalysis({
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Voltage Waveforms */}
-        <div className="lg:col-span-8 bg-white border border-slate-200 rounded-sm shadow-sm h-[400px] flex flex-col">
+        <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl shadow-sm h-[400px] flex flex-col">
           <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/50 flex items-center gap-2">
             <Waves className="w-4 h-4 text-slate-500" />
             <span className="text-sm font-medium text-slate-700 uppercase">
@@ -141,7 +141,7 @@ export default function AdvancedWaveformAnalysis({
         </div>
 
         {/* Health Radar (Numerically Meaningful) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 rounded-sm shadow-sm h-[400px] flex flex-col">
+        <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl shadow-sm h-[400px] flex flex-col">
           <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/50">
             <span className="text-sm font-medium text-slate-700 uppercase">
               System Health Profile
@@ -183,7 +183,7 @@ export default function AdvancedWaveformAnalysis({
         </div>
 
         {/* Instantaneous Power (Ripples now physically accurate) */}
-        <div className="lg:col-span-8 bg-white border border-slate-200 rounded-sm shadow-sm h-[300px] flex flex-col">
+        <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl shadow-sm h-[300px] flex flex-col">
           <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/50">
             <span className="text-sm font-medium text-slate-700 uppercase">
               Instantaneous Power P(t)
@@ -216,7 +216,7 @@ export default function AdvancedWaveformAnalysis({
         </div>
 
         {/* Voltage Deviation */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 rounded-sm shadow-sm h-[300px] flex flex-col">
+        <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl shadow-sm h-[300px] flex flex-col">
           <div className="px-5 py-3 border-b border-slate-100 bg-slate-50/50">
             <span className="text-sm font-medium text-slate-700 uppercase">
               Voltage Deviation (%)

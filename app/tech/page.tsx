@@ -305,7 +305,7 @@ export default function TechPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-              className="lg:col-span-4 bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden"
+              className="lg:col-span-4 bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"
             >
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-200 bg-gray-50">
                 <div className="flex items-center gap-2 text-[12px] font-mono text-gray-600">
@@ -314,8 +314,8 @@ export default function TechPage() {
                 </div>
                 <div className="flex items-center gap-2 text-[12px] font-mono text-[#107C10]">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#107C10] opacity-75"></span>
-                    <span className="relative inline-flex rounded-sm h-2 w-2 bg-[#107C10]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-[#107C10] opacity-75"></span>
+                    <span className="relative inline-flex rounded-xl h-2 w-2 bg-[#107C10]"></span>
                   </span>
                   DEPLOYED
                 </div>
@@ -365,7 +365,7 @@ export default function TechPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-center gap-2.5 px-3 py-2 bg-gray-50 hover:bg-[#eaf3fb] border border-gray-200 hover:border-[#0078D4] rounded-sm transition-colors flex-shrink-0"
+                  className="flex items-center gap-2.5 px-3 py-2 bg-gray-50 hover:bg-[#eaf3fb] border border-gray-200 hover:border-[#0078D4] rounded-xl transition-colors flex-shrink-0"
                 >
                   <step.icon className="h-3.5 w-3.5 text-[#0078D4]" />
                   <div className="flex flex-col">
@@ -441,13 +441,13 @@ export default function TechPage() {
                         ease: "easeOut",
                       }}
                       whileHover={{ y: -2 }}
-                      className="group bg-white border border-gray-200 hover:border-[#0078D4] rounded-sm p-5 transition-colors duration-200"
+                      className="group bg-white border border-gray-200 hover:border-[#0078D4] rounded-xl p-5 transition-colors duration-200"
                     >
                       <div className="flex items-start justify-between mb-4">
-                        <div className="h-10 w-10 flex items-center justify-center bg-gray-50 group-hover:bg-[#eaf3fb] border border-gray-200 group-hover:border-[#0078D4] rounded-sm transition-colors">
+                        <div className="h-10 w-10 flex items-center justify-center bg-gray-50 group-hover:bg-[#eaf3fb] border border-gray-200 group-hover:border-[#0078D4] rounded-xl transition-colors">
                           <Icon className="h-5 w-5 text-gray-700 group-hover:text-[#0078D4] transition-colors" />
                         </div>
-                        <span className="text-[10px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-sm">
+                        <span className="text-[10px] font-mono text-[#0078D4] tracking-wider px-1.5 py-0.5 bg-[#eaf3fb] rounded-xl">
                           v{item.version}
                         </span>
                       </div>

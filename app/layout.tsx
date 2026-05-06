@@ -11,7 +11,7 @@ import {
   Inter,
 } from "next/font/google";
 import { Rubik } from "next/font/google";
-
+import { Raleway, Public_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
@@ -39,6 +39,17 @@ export const lucideSans = localFont({
   variable: "--font-lucide",
   weight: "400",
   display: "swap",
+});
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-public-sans",
+});
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-raleway",
 });
 
 export const robotoSlab = Roboto_Slab({
@@ -119,7 +130,7 @@ export default function RootLayout({
     <html lang="en" data-google-analytics-opt-out="">
       <body
         // 👇 Add inter.variable to your class string
-        className={`${geistSans.variable} ${robotoSlab.variable} ${ptSans.variable} ${arimo.variable} ${dmMono.variable}  ${roboto.variable} ${workSans.variable} ${geistMono.variable} ${lucideSans.variable} ${rubik.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${publicSans.variable} ${robotoSlab.variable} ${ptSans.variable} ${arimo.variable} ${dmMono.variable}  ${roboto.variable} ${workSans.variable} ${geistMono.variable} ${lucideSans.variable} ${rubik.variable} ${inter.variable} ${raleway.variable} antialiased`}
       >
         <Header />
         {children}

@@ -28,6 +28,8 @@ const config: Config = {
         rubik: ["var(--font-rubik)", "sans-serif"],
         ptSans: ["var(--font-pt-sans)", "sans-serif"],
         arimo: ["var(--font-arimo)", "sans-serif"],
+        raleway: ["var(--font-raleway)", "sans-serif"],
+        publicsans: ["var(--font-public-sans)", "sans-serif"],
         roboto: ["var(--font-roboto)", "sans-serif"],
         robotoSerif: ["var(--font-roboto-slab)", "sans-serif"],
       },

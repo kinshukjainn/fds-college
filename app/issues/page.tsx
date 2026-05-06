@@ -127,7 +127,7 @@ export default function FeedbacksList() {
         {/* ── HEADER ── */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-white border border-gray-200 shadow-sm rounded-sm">
+            <div className="p-3 bg-white border border-gray-200 shadow-sm rounded-xl">
               <MessageSquare className="w-6 h-6 text-blue-600" />
             </div>
             <div>
@@ -171,7 +171,7 @@ export default function FeedbacksList() {
 
         {/* ── FILTERS BLOCK ── */}
         {showFilters && (
-          <div className="bg-white border border-gray-200 shadow-sm rounded-sm p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-end">
               <label className="flex flex-col gap-1.5">
                 <span className="text-gray-700 font-medium text-sm flex items-center gap-1.5">
@@ -219,21 +219,21 @@ export default function FeedbacksList() {
 
         {/* ── ERROR & LOADING STATES ── */}
         {isLoading && (
-          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-sm shadow-sm">
-            <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-sm animate-spin" />
+          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+            <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-xl animate-spin" />
             Loading feedback archive...
           </div>
         )}
 
         {errorMsg && (
-          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-sm mb-6 flex flex-wrap items-center gap-4 justify-between">
+          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl mb-6 flex flex-wrap items-center gap-4 justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-sm bg-red-500" />
+              <div className="w-1.5 h-1.5 rounded-xl bg-red-500" />
               <span className="font-medium">{errorMsg}</span>
             </div>
             <button
               onClick={fetchFeedbacks}
-              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-lg transition-colors font-medium"
+              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-xl transition-colors font-medium"
             >
               Retry
             </button>
@@ -241,7 +241,7 @@ export default function FeedbacksList() {
         )}
 
         {!isLoading && !errorMsg && filtered.length === 0 && (
-          <div className="p-16 text-center text-gray-500 bg-white border border-gray-200 rounded-sm shadow-sm flex flex-col items-center gap-3">
+          <div className="p-16 text-center text-gray-500 bg-white border border-gray-200 rounded-xl shadow-sm flex flex-col items-center gap-3">
             <Inbox size={48} className="text-gray-300" />
             <p className="text-base font-medium text-gray-900">
               No issues found
@@ -254,7 +254,7 @@ export default function FeedbacksList() {
 
         {/* ── LIST ── */}
         {!isLoading && !errorMsg && filtered.length > 0 && (
-          <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
             {/* Header row for context */}
             <div className="bg-gray-50/80 border-b border-gray-100 px-6 py-3 flex justify-between items-center text-sm font-medium text-gray-500">
               <span>{filtered.length} Open Issues</span>
@@ -276,7 +276,7 @@ export default function FeedbacksList() {
                     >
                       <div className="flex gap-4 items-start flex-1 min-w-0">
                         {/* Avatar Placeholder */}
-                        <div className="w-10 h-10 rounded-sm bg-gradient-to-tr from-blue-100 to-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-100 to-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5">
                           <span className="text-blue-700 font-semibold text-sm">
                             {fb.name.charAt(0).toUpperCase()}
                           </span>
@@ -288,7 +288,7 @@ export default function FeedbacksList() {
                               {title}
                             </h3>
                             {fb.project_name && (
-                              <span className="bg-blue-50 text-blue-700 border border-blue-200 text-xs font-medium px-2 py-0.5 rounded-sm shrink-0">
+                              <span className="bg-blue-50 text-blue-700 border border-blue-200 text-xs font-medium px-2 py-0.5 rounded-xl shrink-0">
                                 {fb.project_name}
                               </span>
                             )}
@@ -314,7 +314,7 @@ export default function FeedbacksList() {
 
                       <div className="mt-4 sm:mt-0 ml-14 sm:ml-4 shrink-0 flex items-center justify-end">
                         <div
-                          className={`p-1.5 rounded-lg transition-colors ${
+                          className={`p-1.5 rounded-xl transition-colors ${
                             isOpen
                               ? "bg-blue-100 text-blue-700"
                               : "bg-gray-100 text-gray-400 group-hover:bg-gray-200 group-hover:text-gray-600"
@@ -374,7 +374,7 @@ export default function FeedbacksList() {
                           [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ul]:space-y-1
                           [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_ol]:space-y-1
                           [&_blockquote]:border-l-4 [&_blockquote]:border-gray-200 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-500 [&_blockquote]:my-4 
-                          [&_code]:bg-gray-100 [&_code]:text-pink-600 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono
+                          [&_code]:bg-gray-100 [&_code]:text-pink-600 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-xl [&_code]:text-sm [&_code]:font-mono
                           [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:p-4 [&_pre]:rounded-xl [&_pre]:overflow-x-auto [&_pre]:my-5 [&_pre]:shadow-sm
                           [&_pre_code]:bg-transparent [&_pre_code]:text-gray-100 [&_pre_code]:p-0 [&_pre_code]:text-sm"
                         >

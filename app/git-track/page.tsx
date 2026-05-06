@@ -238,7 +238,7 @@ export default function ChangelogTracker() {
               </h1>
               <div className="flex items-center gap-1.5 text-sm text-gray-500 mt-0.5">
                 <GitBranch className="w-3.5 h-3.5" />
-                <span className="font-medium bg-gray-100 px-1.5 py-0.5 rounded-md text-gray-700">
+                <span className="font-medium bg-gray-100 px-1.5 py-0.5 rounded-xl text-gray-700">
                   {GITHUB_CONFIG.branch}
                 </span>
                 <span className="text-gray-300 mx-1">•</span>
@@ -271,7 +271,7 @@ export default function ChangelogTracker() {
 
         {/* ── FILTERS BLOCK ── */}
         {showFilters && (
-          <div className="bg-white border border-gray-200 shadow-sm rounded-sm p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-5 mb-6 animate-in slide-in-from-top-2 fade-in duration-200">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
               <label className="flex flex-col gap-1.5">
                 <span className="text-gray-700 font-medium text-sm flex items-center gap-1">
@@ -336,21 +336,21 @@ export default function ChangelogTracker() {
 
         {/* ── ERROR & LOADING STATES ── */}
         {loading && (
-          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-sm shadow-sm">
-            <div className="w-6 h-6 border-2 border-gray-900 border-t-transparent rounded-sm animate-spin" />
+          <div className="p-12 text-center text-sm text-gray-500 flex flex-col items-center gap-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+            <div className="w-6 h-6 border-2 border-gray-900 border-t-transparent rounded-xl animate-spin" />
             Fetching repository history (Page {fetchingProgress})...
           </div>
         )}
 
         {error && (
-          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-sm mb-6 flex flex-wrap items-center gap-4 justify-between">
+          <div className="p-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl mb-6 flex flex-wrap items-center gap-4 justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-sm bg-red-500" />
+              <div className="w-1.5 h-1.5 rounded-xl bg-red-500" />
               <span>{error}</span>
             </div>
             <button
               onClick={fetchCommits}
-              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-lg transition-colors font-medium"
+              className="text-red-700 hover:bg-red-100 px-3 py-1 rounded-xl transition-colors font-medium"
             >
               Retry
             </button>
@@ -358,14 +358,14 @@ export default function ChangelogTracker() {
         )}
 
         {!loading && !error && displayCommits.length === 0 && (
-          <div className="p-12 text-center text-sm text-gray-500 bg-white border border-gray-200 rounded-sm shadow-sm">
+          <div className="p-12 text-center text-sm text-gray-500 bg-white border border-gray-200 rounded-xl shadow-sm">
             No commits found matching your search criteria.
           </div>
         )}
 
         {/* ── COMMITS TIMELINE / LIST ── */}
         {!loading && !error && displayCommits.length > 0 && (
-          <div className="bg-white border border-gray-200 rounded-sm shadow-sm overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
             <div className="divide-y divide-gray-100">
               {displayCommits.map((commit, index) => {
                 const title = getCommitTitle(commit.commit.message);
@@ -385,10 +385,10 @@ export default function ChangelogTracker() {
                             alt={commit.commit.author.name}
                             width={32}
                             height={32}
-                            className="rounded-sm border border-gray-200"
+                            className="rounded-xl border border-gray-200"
                           />
                         ) : (
-                          <div className="w-8 h-8 rounded-sm bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500">
+                          <div className="w-8 h-8 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-500">
                             <GitCommitHorizontal size={16} />
                           </div>
                         )}
@@ -400,7 +400,7 @@ export default function ChangelogTracker() {
                             {title}
                           </span>
                           {isLatest && (
-                            <span className="bg-blue-50 text-blue-600 border border-blue-200 text-[11px] font-semibold px-2 py-0.5 rounded-sm leading-tight shrink-0">
+                            <span className="bg-blue-50 text-blue-600 border border-blue-200 text-[11px] font-semibold px-2 py-0.5 rounded-xl leading-tight shrink-0">
                               Latest
                             </span>
                           )}
@@ -424,7 +424,7 @@ export default function ChangelogTracker() {
                         href={commit.html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-mono text-gray-500 bg-gray-50 border border-gray-200 hover:border-gray-300 hover:text-gray-900 px-2.5 py-1.5 rounded-lg transition-all"
+                        className="flex items-center gap-1.5 text-xs font-mono text-gray-500 bg-gray-50 border border-gray-200 hover:border-gray-300 hover:text-gray-900 px-2.5 py-1.5 rounded-xl transition-all"
                         title="View Commit"
                       >
                         <GitCommitHorizontal size={14} />
@@ -435,7 +435,7 @@ export default function ChangelogTracker() {
                         href={commit.html_url.replace("/commit/", "/tree/")}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 p-1.5 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all"
+                        className="flex items-center gap-1 p-1.5 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all"
                         title="Browse Files at this point"
                       >
                         <Code2 size={16} />
